@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us | The Olive Table – Catering Services</title>
+  <meta name="description" content="Learn about our catering story, experience, mission and why customers choose us for buffets, meal boxes and office catering.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+</head>
+<body data-page="about" data-title="About Us">
+
+  <div id="site-header"></div>
+
+  <main class="overflow-x-clip">
+    <section data-page-hero data-title="About Us" data-sub="Our Story, Our Passion" data-image="assets/images/hero-about.jpg"></section>
+
+    <!-- ============ INTRODUCTION ============ -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-6 grid lg:grid-cols-[.85fr_1.15fr] gap-8 lg:gap-12 items-center">
+      <div class="relative max-w-sm mx-auto lg:mx-0 w-full" data-reveal="left">
+        <div class="absolute -inset-2 shape-leaf-alt border border-gold/50 -translate-x-2 translate-y-2 -z-10"></div>
+        <div class="glass !p-1.5"><img src="assets/images/about-owner.jpg" alt="Owner and head chef" loading="lazy" class="w-full aspect-[4/4.6] object-cover object-top shape-leaf-sm"></div>
+        <div class="glass-dark absolute -bottom-3 -right-3 sm:-right-6 px-4 py-3 animate-float">
+          <p class="font-display text-3xl text-gold-light leading-none"><span data-years></span>+</p>
+          <p class="mt-1 text-[.6rem] uppercase tracking-[.2em] text-white/75">Years of Experience</p>
+        </div>
+      </div>
+
+      <div data-reveal="right">
+        <span class="eyebrow">Who We Are</span>
+        <h2 class="mt-1 section-title"><span data-text="about.heading"></span><br><span class="text-sage-600" data-text="about.subheading"></span></h2>
+        <div id="about-story" class="mt-3 space-y-2 text-sm text-charcoal/70 leading-relaxed"></div>
+        <div id="about-features" class="mt-4 space-y-2"></div>
+        <p class="mt-3 text-sm text-charcoal/60">Founded in <strong class="text-forest-deep" data-text="business.established"></strong> by <strong class="text-forest-deep" data-text="business.owner"></strong>, <span data-text="business.ownerRole"></span>.</p>
+      </div>
+    </section>
+
+    <!-- ============ OUR JOURNEY (history) ============ -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10">
+      <div class="relative overflow-hidden shape-leaf shadow-glass-lg">
+        <img src="assets/images/about-journey.jpg" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-br from-forest-deep/90 via-forest-deep/80 to-forest/70"></div>
+        <div class="relative px-5 py-6 sm:px-8">
+          <div class="max-w-2xl" data-reveal>
+            <span class="eyebrow !text-gold-light">History &amp; Experience</span>
+            <h2 class="mt-1 section-title !text-white" data-text="about.journeyTitle"></h2>
+          </div>
+          <div id="about-journey" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MISSION & VISION ============ -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10 grid md:grid-cols-2 gap-x-4 gap-y-9">
+      <div class="glass glass-hover p-5 pt-9 text-center" data-reveal="left">
+        <span class="ic float-ic" aria-hidden="true">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </span>
+        <div><h3 class="text-2xl font-semibold text-forest-deep transition-colors">Our Mission</h3>
+        <p class="mt-1 text-sm text-charcoal/70 leading-snug" data-text="about.mission"></p></div>
+      </div>
+      <div class="glass glass-hover p-5 pt-9 text-center" data-reveal="right">
+        <span class="ic float-ic" aria-hidden="true">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </span>
+        <div><h3 class="text-2xl font-semibold text-forest-deep transition-colors">Our Vision</h3>
+        <p class="mt-1 text-sm text-charcoal/70 leading-snug" data-text="about.vision"></p></div>
+      </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE US ============ -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10">
+      <div class="text-center max-w-2xl mx-auto" data-reveal>
+        <span class="eyebrow">Special Qualities</span>
+        <h2 class="mt-1 section-title" data-text="about.whyTitle"></h2>
+      </div>
+      <div id="about-why" class="mt-9 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-9"></div>
+    </section>
+
+    <!-- ============ TEAM / OWNER (optional) ============ -->
+    <section id="about-team-section" class="mx-auto max-w-7xl px-4 sm:px-6 mt-10">
+      <div class="text-center max-w-2xl mx-auto" data-reveal>
+        <span class="eyebrow">Our Team</span>
+        <h2 class="mt-1 section-title" data-text="about.teamTitle"></h2>
+      </div>
+      <div id="about-team" class="mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto"></div>
+    </section>
+
+    <section data-cta data-title="Let’s Plan Your Catering Order" data-text="Share your date and quantity and we will get back to you with menu ideas and a quote."></section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

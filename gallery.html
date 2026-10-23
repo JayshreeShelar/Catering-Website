@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | The Olive Table – Catering Services</title>
+  <meta name="description" content="Photos of our food, buffets, live counters, thali meals, desserts and office catering.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+</head>
+<body data-page="gallery" data-title="Gallery">
+
+  <div id="site-header"></div>
+
+  <main class="overflow-x-clip">
+    <section data-page-hero data-title="Gallery" data-sub="Moments We’ve Served" data-image="assets/images/hero-gallery.jpg"></section>
+
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-8">
+      <div class="text-center max-w-2xl mx-auto" data-reveal>
+        <span class="eyebrow">Our Work</span>
+        <h2 class="mt-1 section-title">Our Food, Fresh From the Kitchen</h2>
+        <p class="mt-1 text-sm text-charcoal/55"><span id="gallery-count"></span> photos &middot; tap any photo to enlarge</p>
+      </div>
+
+      <div id="gallery-filters" class="mt-4 flex flex-wrap justify-center gap-2" role="group" aria-label="Filter gallery by category"></div>
+
+      <div id="gallery-grid" class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+    </section>
+
+    <section data-cta data-title="Love What You See?" data-text="Let us prepare the same fresh food for your next order."></section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

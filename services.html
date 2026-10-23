@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services | The Olive Table – Catering Services</title>
+  <meta name="description" content="Buffet, thali and meal-box, office lunch and live-counter catering with veg, non-veg and special menus, plus customised packages.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+</head>
+<body data-page="services" data-title="Services">
+
+  <div id="site-header"></div>
+
+  <main class="overflow-x-clip">
+    <section data-page-hero data-title="Our Services" data-sub="Fresh Catering, Every Order" data-image="assets/images/hero-services.jpg"></section>
+
+    <!-- ============ SERVICE LIST ============ -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-8">
+      <div class="max-w-2xl" data-reveal>
+        <span class="eyebrow">What We Offer</span>
+        <h2 class="mt-1 section-title">Menus and Service, Made for Your Order</h2>
+        <p class="mt-1 text-sm text-charcoal/65">Choose a service below, or tell us about your requirement and we will shape the right solution.</p>
+      </div>
+      <div id="services-detail" class="mt-5 space-y-8 lg:space-y-10"></div>
+    </section>
+
+    <!-- ============ MENU DETAILS ============ -->
+    <section id="menu" class="scroll-mt-10 mx-auto max-w-7xl px-4 sm:px-6 mt-10">
+      <div class="text-center max-w-2xl mx-auto mb-4" data-reveal>
+        <span class="eyebrow">Veg &middot; Non-Veg &middot; Special</span>
+        <h2 class="mt-1 section-title" data-text="menuTitle"></h2>
+        <p class="mt-1 text-sm text-charcoal/65" data-text="menuIntro"></p>
+      </div>
+      <div id="menu-block"></div>
+    </section>
+
+    <!-- ============ PACKAGES & PRICING ============ -->
+    <section id="packages" class="scroll-mt-10 mx-auto max-w-7xl px-4 sm:px-6 mt-10">
+      <div class="text-center max-w-2xl mx-auto" data-reveal>
+        <span class="eyebrow">Packages</span>
+        <h2 class="mt-1 section-title">Choose the Package That Fits</h2>
+        <p class="mt-1 text-sm text-charcoal/65">Transparent starting points &mdash; every package can be adjusted.</p>
+      </div>
+      <div id="packages-grid" class="mt-8 grid md:grid-cols-3 gap-4 items-stretch"></div>
+      <p id="packages-note" class="mt-2 text-center text-xs text-charcoal/50"></p>
+      <div id="custom-package" class="mt-4"></div>
+    </section>
+
+    <!-- ============ ADDITIONAL SERVICES ============ -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10 text-center">
+      <div data-reveal>
+        <span class="eyebrow">Additional Services</span>
+        <h2 class="mt-1 section-title">Everything Around the Meal</h2>
+      </div>
+      <div id="extras-list" data-reveal class="mt-4 flex flex-wrap justify-center gap-2"></div>
+    </section>
+
+    <section data-cta data-title="Ready to Build Your Menu?" data-text="Send us your requirement and we will prepare a customised proposal."></section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

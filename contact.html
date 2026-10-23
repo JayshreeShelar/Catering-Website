@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | The Olive Table – Catering Services</title>
+  <meta name="description" content="Contact us for catering enquiries and bookings. Call, WhatsApp, email or send an enquiry that opens directly in WhatsApp.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+</head>
+<body data-page="contact" data-title="Contact Us">
+
+  <div id="site-header"></div>
+
+  <main class="overflow-x-clip">
+    <section data-page-hero data-title="Get In Touch" data-sub="Let’s Plan Your Catering Order" data-image="assets/images/hero-contact.jpg"></section>
+
+    <!-- ============ CONTACT DETAILS + ENQUIRY FORM ============ -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-6 grid lg:grid-cols-[.8fr_1.2fr] gap-x-6 lg:gap-x-8 gap-y-3 items-stretch">
+      <div class="lg:col-span-2 pb-6" data-reveal>
+        <span class="eyebrow">Contact Details</span>
+        <h2 class="mt-1 section-title">We&rsquo;d Love to Hear From You</h2>
+        <p class="mt-1 text-sm text-charcoal/65" data-text="contact.bookingNote"></p>
+      </div>
+      <div data-reveal="left">
+        <div id="contact-cards" class="grid sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-x-3 gap-y-8"></div>
+        <div class="mt-3 flex flex-wrap items-center gap-3">
+          <div id="contact-social" class="flex gap-2"></div>
+          <a data-link="call" class="btn btn-sage !py-2">Call Now</a>
+          <a data-link="whatsapp" class="btn btn-outline !py-2">WhatsApp Us</a>
+        </div>
+
+        <div class="mt-4 glass p-4" data-reveal="zoom">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="text-xl font-semibold text-forest-deep">How It Works</h3>
+            <span class="text-[.65rem] uppercase tracking-[.2em] text-gold-dark">3 easy steps</span>
+          </div>
+          <ol class="mt-2 space-y-1">
+            <li class="pt flex gap-3 items-start"><span class="pt-dot w-7 h-7 rounded-full bg-gold/25 text-forest-deep text-sm font-semibold flex items-center justify-center shrink-0">1</span><p class="text-sm leading-snug"><strong class="font-medium">Send your enquiry</strong> &mdash; date, quantity and food preference.</p></li>
+            <li class="pt flex gap-3 items-start"><span class="pt-dot w-7 h-7 rounded-full bg-gold/25 text-forest-deep text-sm font-semibold flex items-center justify-center shrink-0">2</span><p class="text-sm leading-snug"><strong class="font-medium">We call you back</strong> &mdash; to plan the menu and budget together.</p></li>
+            <li class="pt flex gap-3 items-start"><span class="pt-dot w-7 h-7 rounded-full bg-gold/25 text-forest-deep text-sm font-semibold flex items-center justify-center shrink-0">3</span><p class="text-sm leading-snug"><strong class="font-medium">Taste &amp; confirm</strong> &mdash; menu tasting, final quote and order confirmation.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div id="enquiry" class="scroll-mt-24 glass frame-strong p-4 sm:p-5 flex flex-col" data-reveal="right">
+        <div class="flex items-baseline justify-between gap-3 flex-wrap">
+          <h2 class="text-2xl font-semibold text-forest-deep">Catering Enquiry &amp; Booking</h2>
+          <span class="eyebrow">Get a Quote</span>
+        </div>
+
+        <form id="enquiry-form" class="mt-3 flex-1 grid grid-cols-2 sm:grid-cols-6 gap-x-3 gap-y-2.5 lg:[grid-template-rows:auto_auto_auto_auto_1fr_auto]">
+          <div class="col-span-2 sm:col-span-3">
+            <label for="f-name" class="block mb-1 text-xs font-medium text-forest-deep">Full Name *</label>
+            <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Your full name" class="field">
+          </div>
+          <div class="col-span-2 sm:col-span-3">
+            <label for="f-phone" class="block mb-1 text-xs font-medium text-forest-deep">Phone Number *</label>
+            <input id="f-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9+\s\-]{8,18}" title="Enter a valid phone number" placeholder="+91 00000 00000" class="field">
+          </div>
+          <div class="col-span-2">
+            <label for="f-type" class="block mb-1 text-xs font-medium text-forest-deep">Order Type *</label>
+            <select id="f-type" name="eventType" required class="field"></select>
+          </div>
+          <div class="col-span-1 sm:col-span-2">
+            <label for="f-date" class="block mb-1 text-xs font-medium text-forest-deep">Date Required *</label>
+            <input id="f-date" name="date" type="date" required class="field">
+          </div>
+          <div class="col-span-1 sm:col-span-2">
+            <label for="f-guests" class="block mb-1 text-xs font-medium text-forest-deep">People *</label>
+            <input id="f-guests" name="guests" type="number" min="10" max="100000" required inputmode="numeric" placeholder="e.g. 150" class="field">
+          </div>
+          <div class="col-span-1 sm:col-span-2">
+            <label for="f-venue" class="block mb-1 text-xs font-medium text-forest-deep">Delivery Location</label>
+            <input id="f-venue" name="venue" type="text" placeholder="Where to deliver?" class="field">
+          </div>
+          <div class="col-span-1 sm:col-span-2">
+            <label for="f-package" class="block mb-1 text-xs font-medium text-forest-deep">Package</label>
+            <select id="f-package" name="package" class="field"></select>
+          </div>
+          <div class="col-span-2">
+            <label for="f-email" class="block mb-1 text-xs font-medium text-forest-deep">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" class="field">
+          </div>
+          <fieldset class="col-span-2 sm:col-span-6 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+            <legend class="sr-only">Food Preference</legend>
+            <span class="text-xs font-medium text-forest-deep" aria-hidden="true">Food Preference *</span>
+            <div id="food-pills" class="flex flex-wrap gap-2"></div>
+          </fieldset>
+          <div class="col-span-2 sm:col-span-6 flex flex-col">
+            <label for="f-message" class="block mb-1 text-xs font-medium text-forest-deep">Your Message</label>
+            <textarea id="f-message" name="message" rows="3" placeholder="Tell us your menu ideas, quantity or special requirements" class="field resize-none grow min-h-[4.5rem]"></textarea>
+          </div>
+          <div class="col-span-2 sm:col-span-6 flex flex-col sm:flex-row sm:items-center gap-3 self-end">
+            <button type="submit" class="btn btn-gold !py-2.5 !px-7">Send Enquiry on WhatsApp</button>
+            <p class="text-[.7rem] text-charcoal/55">Your enquiry is sent straight to our WhatsApp (+91 88305 32500). Nothing is stored on this website.</p>
+          </div>
+        </form>
+
+        <div id="form-success" class="hidden mt-3 shape-leaf-sm border border-gold/60 bg-white/70 p-3 text-sm text-forest-deep" role="status">
+          <p class="font-display text-xl font-semibold">Almost done &mdash; just press Send in WhatsApp.</p>
+          <p class="text-charcoal/70 text-xs">If WhatsApp did not open, <a data-wa-fallback target="_blank" rel="noopener" class="underline font-medium text-gold-dark hover:text-forest-deep">click here to open it</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOCATION & HOURS + MAP ============ -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-8 grid lg:grid-cols-[1fr_1fr] gap-4 lg:gap-6 items-stretch">
+      <div data-reveal="left" class="glass frame-strong p-4">
+        <span class="eyebrow">Find Us</span>
+        <h2 class="mt-1 text-2xl font-semibold text-forest-deep">Our Location &amp; Hours</h2>
+        <p class="mt-1 text-sm text-charcoal/70 leading-snug" data-text="contact.address"></p>
+        <ul id="hours-list" class="mt-2"></ul>
+        <div id="areas-list" class="mt-2 flex flex-wrap gap-2"></div>
+        <a data-link="map" class="mt-3 btn btn-sage !py-2">Open in Google Maps</a>
+      </div>
+
+      <div class="glass frame-strong !p-2 min-h-[13rem]" data-reveal="right">
+        <div id="map-embed" class="w-full h-full min-h-[12.5rem] shape-leaf-sm overflow-hidden bg-sage-100"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
