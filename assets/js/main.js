@@ -120,8 +120,8 @@
       <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
       <div class="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-sage/30 blur-3xl"></div>
       <div class="relative mx-auto max-w-7xl px-4 sm:px-6 pt-8 pb-4">
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-[1.4fr_.7fr_1.3fr_1fr]">
-          <div>
+        <div class="grid grid-cols-2 gap-x-5 gap-y-6 sm:gap-x-6 lg:grid-cols-[1.4fr_.7fr_1.3fr_1fr]">
+          <div class="col-span-2 sm:col-span-1">
             ${logo('text-white')}
             <p class="mt-3 text-sm leading-relaxed max-w-xs">${B.intro}</p>
             <div class="mt-3 flex gap-2.5">${socialIcons('w-9 h-9')}</div>
@@ -130,7 +130,7 @@
             <h4 class="font-display text-xl text-white">Quick Links</h4>
             <ul class="mt-3 space-y-1.5 text-sm">${S.nav.map(n => `<li><a class="hover:text-gold-light hover:pl-2 transition-all" href="${n.href}">${n.label}</a></li>`).join('')}</ul>
           </div>
-          <div>
+          <div class="col-span-2 order-4 sm:col-span-1 sm:order-3">
             <h4 class="font-display text-xl text-white">Contact</h4>
             <ul class="mt-3 space-y-2 text-sm">
               <li class="flex gap-3">${icon('phone', 'w-4 h-4 mt-0.5 text-gold shrink-0')}<a class="hover:text-gold-light" href="tel:${C.phoneRaw}">${C.phone}</a></li>
@@ -138,7 +138,7 @@
               <li class="flex gap-3">${icon('pin', 'w-4 h-4 mt-0.5 text-gold shrink-0')}<span>${C.address}</span></li>
             </ul>
           </div>
-          <div>
+          <div class="order-3 sm:order-4">
             <h4 class="font-display text-xl text-white">Working Hours</h4>
             <ul class="mt-3 space-y-2 text-sm">${C.hours.map(h => `<li><span class="block text-white/90">${h.day}</span><span class="text-gold-light">${h.time}</span></li>`).join('')}</ul>
           </div>
