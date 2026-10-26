@@ -220,9 +220,7 @@ window.SITE = {
     { src: 'assets/images/gallery-16.jpg', cat: 'Buffet Setup', alt: 'Buffet counter with food labels' },
     { src: 'assets/images/gallery-17.jpg', cat: 'Live Service', alt: 'Serving at the buffet counter' },
     { src: 'assets/images/gallery-18.jpg', cat: 'Events & Venues', alt: 'Hall set up for guests' },
-    { src: 'assets/images/gallery-19.jpg', cat: 'Buffet Setup', alt: 'Our chafing dishes and serving equipment' },
-    { src: 'assets/images/gallery-20.jpg', cat: 'Events & Venues', alt: 'Samadhan catering moments' },
-    { src: 'assets/images/gallery-21.jpg', cat: 'Events & Venues', alt: 'Samadhan catering moments' }
+    { src: 'assets/images/gallery-19.jpg', cat: 'Buffet Setup', alt: 'Our chafing dishes and serving equipment' }
   ],
 
   /* ---------- 15. HOME HERO CARDS (glass carousel on the right) ---------- */

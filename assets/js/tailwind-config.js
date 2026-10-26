@@ -8,7 +8,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        sage:     { DEFAULT: '#3F7A3E', 50: '#F0F6EF', 100: '#DFEBDD', 200: '#BFD7BC', 300: '#9BC098', 400: '#6FA26B', 500: '#3F7A3E', 600: '#336A33', 700: '#2A5629', 800: '#214422', 900: '#173018' },
+        sage:     { DEFAULT: '#946500', 50: '#FFF8E6', 100: '#FBEFCB', 200: '#F5E0A0', 300: '#EDCB6B', 400: '#D9A91F', 500: '#946500', 600: '#7D5400', 700: '#6B4800', 800: '#5B3A0C', 900: '#3A2406' },
         taupe:    { DEFAULT: '#C9A66B', 50: '#FBF6EC', 100: '#F5ECD9', 200: '#EADCBC', 300: '#DEC999', 400: '#C9A66B', 500: '#A98648', 600: '#876A38' },
         gold:     { DEFAULT: '#F2B91B', light: '#FFE27A', dark: '#946500' },
         charcoal: { DEFAULT: '#2B2118', soft: '#43362A' },
@@ -271,7 +271,7 @@ tailwind.config = {
         /* ---------- form fields ---------- */
         '.field': {
           width: '100%', padding: '.5rem .85rem', borderRadius: '.7rem', fontSize: '.88rem',
-          backgroundColor: 'rgba(255,255,255,.65)', border: '1px solid rgba(63,122,62,.28)', color: theme('colors.charcoal.DEFAULT'),
+          backgroundColor: 'rgba(255,255,255,.65)', border: '1px solid rgba(148,101,0,.3)', color: theme('colors.charcoal.DEFAULT'),
           transition: 'border-color .3s, box-shadow .3s, background-color .3s, border-radius .4s',
           '&::placeholder': { color: 'rgba(43,33,24,.45)' },
           '&:hover': { borderColor: theme('colors.gold.DEFAULT'), borderRadius: '.7rem' },
