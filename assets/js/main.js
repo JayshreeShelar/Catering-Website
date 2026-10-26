@@ -484,8 +484,8 @@
         <div class="min-w-0"><p class="text-[.65rem] uppercase tracking-[.2em] text-gold-dark">${title}</p>${inner}</div>
       </div>`;
     mount('contact-cards', [
-      card('phone', 'Call Us', `<a href="tel:${C.phoneRaw}" class="block font-display text-xl text-forest-deep hover:text-gold-dark">${C.phone}</a>`),
-      card('whatsapp', 'WhatsApp', `<a href="${waLink(S.whatsappMessages.general)}" target="_blank" rel="noopener" class="block font-display text-xl text-forest-deep hover:text-gold-dark">${C.phone}</a>`),
+      card('phone', 'Call Us', `<a href="tel:${C.phoneRaw}" class="block font-sans text-lg font-medium tracking-wide text-forest-deep hover:text-gold-dark">${C.phone}</a>`),
+      card('whatsapp', 'WhatsApp', `<a href="${waLink(S.whatsappMessages.general)}" target="_blank" rel="noopener" class="block font-sans text-lg font-medium tracking-wide text-forest-deep hover:text-gold-dark">${C.phone}</a>`),
       card('mail', 'Email', `<a href="mailto:${C.email}" class="block font-display text-[.95rem] text-forest-deep hover:text-gold-dark break-all leading-tight">${C.email}</a>`),
       card('pin', 'Address', `<p class="text-[.82rem] text-forest-deep leading-snug">${C.address}</p>`)
     ].join(''));
@@ -502,8 +502,16 @@
     $('[name=eventType]', form).innerHTML = opt(S.eventTypes, 'Select order type *');
     $('[name=package]', form).innerHTML = opt([...S.packages.map(p => p.name), 'Custom Package', 'Not sure yet'], 'Select a package (optional)');
     mount('food-pills', S.foodPreferences.map((f, i) => `
-      <label class="cursor-pointer"><input type="radio" name="food" value="${f}" class="peer sr-only" ${i === 0 ? 'required' : ''}>
-        <span class="block px-3 py-1 rounded-full text-xs sm:text-sm border border-sage/30 bg-white/60 text-forest-deep transition peer-checked:bg-sage peer-checked:border-sage peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-gold hover:border-gold hover:-translate-y-0.5 hover:bg-gold/20">${f}</span></label>`).join(''));
+      <label class="cursor-pointer"><input type="radio" name="food" value="${f}" class="peer sr-only" ${i === 0 ? 'aria-describedby="food-error"' : ''}>
+        <span class="food-pill block px-3 py-1 rounded-full text-xs sm:text-sm border border-sage/30 bg-white/60 text-forest-deep transition peer-checked:bg-sage peer-checked:border-sage peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-gold hover:border-gold hover:-translate-y-0.5 hover:bg-gold/20">${f}</span></label>`).join(''));
+
+    // Food preference: custom inline error shown right under the options
+    const foodBox = $('#food-pills'), foodErr = $('#food-error');
+    const setFoodError = (on) => {
+      if (foodErr) foodErr.classList.toggle('hidden', !on);
+      $$('.food-pill', foodBox).forEach(el => el.classList.toggle('!border-red-500', on));
+    };
+    foodBox.addEventListener('change', () => setFoodError(false));
 
     const d = $('[name=date]', form), today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
     d.min = today.toISOString().slice(0, 10);
@@ -532,6 +540,12 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!form.reportValidity()) return;
+      if (!form.querySelector('[name=food]:checked')) {
+        setFoodError(true);
+        foodBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const first = form.querySelector('[name=food]'); if (first) first.focus({ preventScroll: true });
+        return;
+      }
       const fd = Object.fromEntries(new FormData(form).entries());
       Object.keys(fd).forEach(k => fd[k] = String(fd[k]).trim());
       const url = waLink(buildMessage(fd));
