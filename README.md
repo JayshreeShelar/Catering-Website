@@ -1,8 +1,9 @@
 # Catering Website – Client Customisation Guide
 
 A 5-page premium glassmorphism catering website (HTML + Tailwind CSS + JavaScript).
-All content in this package is **placeholder content** (including the sample testimonials and prices).
-Replace it with the client's real details using the steps below.
+Built for **Samadhan Catering Service** (Airoli, Navi Mumbai). Business details, photos and logo are the client's own.
+Still template content (please confirm with the client): the sample **menu dishes**, the **package names/features** (prices are hidden, the site shows "Request a Quote") and the **"How It Works"** steps.
+Social media links and testimonials are intentionally empty/hidden until the client has real ones.
 
 ## Files
 
@@ -48,27 +49,25 @@ for example `919876543210`. This is used by:
 `contact.phoneRaw` (e.g. `+919876543210`) powers every **Call Now** button.
 
 ### Google Maps
-Set `contact.mapQuery` to the full business address (or business name + city) and
+The map currently searches the business address. When the client sends the Google Maps link, paste it into `contact.mapLink` (the "Open in Google Maps" button). Set `contact.mapQuery` to the full business address (or business name + city) and
 `contact.mapLink` to the "Share > Copy link" URL from Google Maps. No API key is needed.
 
 ### Testimonials
-The three testimonials are marked `sample: true`, show a "Sample" tag and a "Sample reviews" note.
-Replace the text with real reviews and set `sample: false` (or remove the property) to remove the notice.
-Delete the `testimonials` list to hide the section.
+The `testimonials` list is empty, so the section is hidden. Add real reviews (`name`, `role`, `rating`, `text`) to show it.
 
 ### Prices
-The prices are samples. Edit `packages` or set `showPrices: false` to display "Request a Quote" instead.
+`showPrices` is `false`, so packages show "Request a Quote". Set it to `true` and fill in `packages` prices when the client provides them.
 Edit `pricingNote` to change the small note under the packages.
 
 ## 2. Images  (`assets/images/`)
 
-Every image is a labelled placeholder. Replace a file **using the same file name** (keep `.jpg`), or change
+Images are the client's own photos. To swap one, replace a file **using the same file name** (keep `.jpg`), or change
 the path in `config.js`. Recommended sizes:
 
 | File | Used on | Suggested size |
 |---|---|---|
-| `logo.svg` | Header, footer (replace with the client's logo, PNG or SVG; if the extension changes, update `business.logo`) | square-ish, transparent background |
-| `favicon.svg` | Browser tab icon | square |
+| `logo.png` | Header, footer (the client's own logo; if the file name changes, update `business.logo`) | square-ish, transparent background |
+| `favicon.png` | Browser tab icon | square |
 | `hero.jpg` | Home hero | 1920 x 1080 |
 | `intro-1.jpg`, `intro-2.jpg` | Home welcome section | 900 x 700 / 700 x 560 |
 | `hero-about.jpg`, `hero-services.jpg`, `hero-gallery.jpg`, `hero-contact.jpg` | Page banners | 1920 x 640 |
@@ -101,8 +100,7 @@ and `foodPreferences`, and the field layout / message format in `contact.html` a
 ## 4. Colours and fonts
 
 Edit `assets/js/tailwind-config.js`:
-- Sage Green `#657568`, Warm Taupe `#B7A99A`, Champagne Gold `#C5A46D`, Charcoal `#292B28`
-  (plus a deep forest tone for dark glass panels and a warm cream page background).
+- Theme matches the Samadhan logo: logo yellow (`gold`, `#F2B91B`), logo brown (`forest`, `#5B3A0C` / deep `#3A2406`) for dark panels, leaf green (`sage`, `#3F7A3E`) for buttons, plus a warm cream background.
 - Fonts: Cormorant Garamond (headings), Jost (body), Great Vibes (script accents). To change them, update the
   Google Fonts `<link>` in each page's `<head>` and the `fontFamily` entries.
 - Reusable styles `glass`, `glass-dark`, `btn-gold`, `btn-glass`, `btn-sage`, `field` are defined once there.

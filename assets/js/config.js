@@ -1,50 +1,41 @@
 /* ==========================================================================
-   SITE CONFIG  -  THE ONLY FILE YOU NEED TO EDIT FOR CLIENT DETAILS
+   SITE CONFIG  -  Samadhan Catering Service
    --------------------------------------------------------------------------
-   Everything below is PLACEHOLDER content. Replace it with the client's real
-   information (see the "Required from Client" items in the requirement doc).
-   Image files live in /assets/images - replace a file and keep its name, or
-   change the path here / in the HTML.
+   All business details live here. Image files live in /assets/images.
    ========================================================================== */
 window.SITE = {
 
   /* ---------- 1. BUSINESS INFORMATION ---------- */
   business: {
-    name: 'The Olive Table',                       // Catering business name
-    descriptor: 'Catering Services',               // small line under the logo name
-    tagline: 'Fresh Food, Served With Care', // main tagline (home hero headline)
-    heroEyebrow: 'Premium catering services',
-    script: 'Good Food Creates Great Moments',     // handwritten accent line
-    intro: 'From daily meals to large bulk orders, we prepare fresh, hygienic and flavourful food for every kind of catering need.',
-    owner: 'Aarav Kulkarni',                       // Owner's name
-    ownerRole: 'Founder & Head Chef',
-    established: 2012,                             // Year of establishment (years of experience is calculated)
-    logo: 'assets/images/logo.svg',                // Business logo (PNG / SVG)
-    areasServed: ['Nashik', 'Pune', 'Mumbai', 'Shirdi', 'Surrounding Areas']   // Cities / areas served
+    name: 'Samadhan',                              // Short name shown in the header / logo
+    fullName: 'Samadhan Catering Service',         // Full business name
+    descriptor: 'Catering Service',                // small line under the logo name
+    tagline: 'Serving Happiness Through Food',     // main tagline (home hero headline)
+    heroEyebrow: 'Samadhan Catering Service',
+    script: 'Every Celebration, A Memorable One',  // handwritten accent line
+    intro: 'Delicious vegetarian and non-vegetarian dishes, traditional favourites and customised menus for weddings, family functions, corporate events and every special occasion.',
+    logo: 'assets/images/logo.png',                // Business logo (PNG / SVG)
+    areasServed: ['Airoli', 'Navi Mumbai']         // Location tags shown on the Contact page
   },
 
   /* ---------- 2. CONTACT DETAILS ---------- */
   contact: {
-    phone: '+91 88305 32500',            // shown on the site
-    phoneRaw: '+918830532500',           // used for the Call Now button (no spaces)
-    whatsapp: '918830532500',            // WhatsApp number: country code + number, digits only. ALL enquiries go here.
-    email: 'hello@theolivetable.example',
-    address: 'Shop No. 12, Sunrise Plaza, College Road, Nashik, Maharashtra 422005',
-    mapQuery: 'Nashik, Maharashtra',     // text used by the embedded Google Map (use the full address once known)
-    mapLink: 'https://www.google.com/maps/search/?api=1&query=Nashik%2C+Maharashtra', // "Open in Google Maps" link
+    phone: '+91 97697 96804',            // shown on the site
+    phoneRaw: '+919769796804',           // used for the Call Now button (no spaces)
+    whatsapp: '919769796804',            // WhatsApp number: country code + number, digits only. ALL enquiries go here.
+    email: 'samadhancatering2015@gmail.com',
+    address: 'Shop No. 6, Siddhesh Apartment, Sector 20-B, Airoli, Navi Mumbai',
+    mapQuery: 'Shop No 6, Siddhesh Apartment, Sector 20-B, Airoli, Navi Mumbai',   // text used by the embedded Google Map
+    mapLink: 'https://www.google.com/maps/search/?api=1&query=Shop+No+6%2C+Siddhesh+Apartment%2C+Sector+20-B%2C+Airoli%2C+Navi+Mumbai', // "Open in Google Maps" link - replace with the exact Google Maps share link when available
     hours: [                             // Business working hours
-      { day: 'Monday – Saturday', time: '9:00 AM – 8:00 PM' },
-      { day: 'Sunday', time: '10:00 AM – 5:00 PM' }
+      { day: 'Morning', time: '9:30 AM – 1:30 PM' },
+      { day: 'Evening', time: '5:30 PM – 8:30 PM' }
     ],
-    bookingNote: 'Please book at least 7 days in advance for large orders.'
+    bookingNote: ''
   },
 
   /* ---------- 3. SOCIAL MEDIA (remove a line to hide it) ---------- */
-  social: [
-    { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/' },
-    { name: 'Facebook',  icon: 'facebook',  url: 'https://www.facebook.com/' },
-    { name: 'YouTube',   icon: 'youtube',   url: 'https://www.youtube.com/' }
-  ],
+  social: [],   // no social media accounts yet - add { name, icon, url } entries here when available
 
   /* ---------- 4. WHATSAPP MESSAGE ---------- */
   whatsappMessages: {
@@ -55,20 +46,14 @@ window.SITE = {
   /* ---------- 5. HOME PAGE ---------- */
   home: {
     welcomeTitle: 'Welcome to',
-    welcomeText: 'We believe good food brings people together. Our catering services are built around fresh ingredients, honest flavours, neat presentation and dependable, on-time delivery for orders of every size.',
-    badge: ['Fresh', 'Seasonal', 'Local'],
+    welcomeText: 'Looking for a catering service that makes your special occasions even more memorable with delicious food and exceptional care? Samadhan Catering Service is here to make every celebration a delightful experience. We believe that good food brings people together and creates memories that last a lifetime.',
+    badge: ['Taste', 'Quality', 'Authenticity'],
     highlights: [
-      { icon: 'leaf',    title: 'Premium Ingredients', text: 'Fresh, carefully sourced produce.' },
-      { icon: 'chef',    title: 'Expert Chefs',        text: 'Skilled, experienced kitchen team.' },
-      { icon: 'clock',   title: 'On-Time Service',     text: 'Punctual set-up and service.' }
+      { icon: 'utensils', title: 'Veg & Non-Veg',       text: 'A variety of delicious dishes.' },
+      { icon: 'sparkle',  title: 'Customised Menus',    text: 'Made to suit your taste.' },
+      { icon: 'heart',    title: 'Customer Satisfaction', text: 'Our name is our promise.' }
     ],
-    // Home stats strip (placeholder numbers - replace or delete the array to hide)
-    stats: [
-      { value: 500, suffix: '+', label: 'Orders Served' },
-      { value: 50000, suffix: '+', label: 'Plates Served' },
-      { value: 'YEARS', suffix: '+', label: 'Years of Experience' },
-      { value: 5, suffix: '', label: 'Cities Served' }
-    ],
+    stats: [],
     showcaseTitle: 'A Taste of Our Kitchen',
     showcaseText: 'A few favourites from our kitchen.'
   },
@@ -78,67 +63,70 @@ window.SITE = {
     heading: 'More Than Just Food',
     subheading: 'It’s a Feeling',
     story: [
-      'The Olive Table was born from a simple belief — that great food has the power to bring people together. What began as a small family kitchen has grown into a trusted catering name for bulk meals, buffets and office lunches.',
-      'With years of experience in the catering industry, we specialise in fresh, hygienic and generously portioned food — from a small family meal order to a large buffet for hundreds.'
+      'We believe that good food brings people together and creates memories that last a lifetime. Whether it’s a wedding, family gathering, birthday celebration, corporate event, or any special occasion, we offer a variety of delicious vegetarian and non-vegetarian dishes to suit your tastes and preferences.',
+      'From traditional favourites to customised menus, we strive to bring the perfect blend of taste, quality, and authenticity to your table. Every occasion is special to us, and we put our heart into serving food that makes your guests feel welcome and satisfied.',
+      'At Samadhan, our name reflects our promise — customer satisfaction through great food and dedicated service. With passion, care, and commitment in everything we do, we aim to make every gathering more joyful and every meal more memorable.'
     ],
     features: [
-      { icon: 'leaf',    title: 'Fresh & Premium Ingredients', text: 'Only the best for your table.' },
-      { icon: 'utensils',title: 'Creative Menus',              text: 'Tailored to your taste and preferences.' },
-      { icon: 'users',   title: 'Experienced Team',            text: 'Skilled chefs, professional staff, seamless service.' }
+      { icon: 'utensils',title: 'Veg & Non-Veg Dishes',   text: 'A variety of delicious dishes for every taste.' },
+      { icon: 'sparkle', title: 'Customised Menus',       text: 'Traditional favourites or a menu made just for you.' },
+      { icon: 'heart',   title: 'Customer Satisfaction',  text: 'Great food and dedicated service, every time.' }
     ],
-    journeyTitle: 'Our Journey',
+    journeyTitle: 'We Cater For',
     journey: [
-      { year: '2012', title: 'The First Kitchen', text: 'Started catering small family functions from a home kitchen.' },
-      { year: '2016', title: 'Growing Together',  text: 'Expanded to buffet and bulk-quantity catering with a dedicated team.' },
-      { year: '2020', title: 'Office Catering',   text: 'Began serving daily and weekly lunches to offices and companies.' },
-      { year: 'Today', title: 'A Trusted Name',   text: 'Hundreds of orders served across multiple cities.' }
+      { year: '01', title: 'Weddings & Engagements',      text: 'Delicious food to make your big day truly special.' },
+      { year: '02', title: 'Griha Pravesh & Apartment Pooja', text: 'Pure, wholesome meals for housewarmings and poojas.' },
+      { year: '03', title: 'Baby Shower & Naming Ceremony', text: 'Joyful menus for your family’s happiest moments.' },
+      { year: '04', title: 'Corporate Events',            text: 'Well-prepared food for meetings, events and celebrations.' },
+      { year: '05', title: 'Small In-House Functions',    text: 'Homely catering for intimate gatherings.' }
     ],
-    mission: 'To serve delicious, hygienic and beautifully presented food that makes every meal feel special — on time, every time.',
-    vision: 'To be the most loved catering partner in the region, known for honest flavours, warm hospitality and flawless service.',
+    mission: 'Our mission is to serve delicious, high-quality food with passion, care, and dedication. We strive to bring people together through exceptional catering services, authentic flavours, and customized menus that suit every occasion. Customer satisfaction is at the heart of everything we do, and we aim to make every celebration memorable through great food and reliable service.',
+    vision: 'Our vision is to become a trusted and preferred catering service known for exceptional taste, quality, and customer satisfaction. We aspire to create lasting relationships with our customers, continuously improve our services, and bring happiness to every occasion we serve. We aim to make Samadhan a name people remember whenever they think of good food and memorable celebrations.',
     whyTitle: 'Why Choose Us',
     why: [
-      { icon: 'leaf',   title: 'Fresh Ingredients',     text: 'Daily-sourced produce and quality ingredients in every dish.' },
-      { icon: 'chef',   title: 'Experienced Chefs',     text: 'A skilled kitchen team trained in regional and continental cuisines.' },
-      { icon: 'sparkle',title: 'Customised Menus',      text: 'Menus designed around your people, budget and taste.' },
-      { icon: 'shield', title: 'Hygiene First',         text: 'Clean kitchens, trained staff and food-safe handling.' },
-      { icon: 'clock',  title: 'Punctual Service',      text: 'On-time delivery, setup and service at your venue.' },
-      { icon: 'heart',  title: 'Personal Attention',    text: 'We treat every order as if it were for our own family.' }
+      { icon: 'utensils', title: 'Veg & Non-Veg Variety',  text: 'Delicious vegetarian and non-vegetarian dishes to suit your tastes and preferences.' },
+      { icon: 'leaf',     title: 'Taste & Authenticity',   text: 'From traditional favourites, the perfect blend of taste, quality and authenticity.' },
+      { icon: 'sparkle',  title: 'Customised Menus',       text: 'Menus planned around your occasion, your guests and your preferences.' },
+      { icon: 'heart',    title: 'Made With Care',         text: 'Passion, care and commitment in everything we do.' },
+      { icon: 'users',    title: 'Every Occasion',         text: 'Weddings, poojas, baby showers, corporate events and small in-house functions.' },
+      { icon: 'shield',   title: 'Customer Satisfaction',  text: 'Our name is our promise — satisfaction through great food and dedicated service.' }
     ],
-    // Team / owner photos are OPTIONAL. Delete the whole array (team: []) to hide the section.
+    // Team section is hidden (no team details provided yet). Add { name, role, photo } entries to show it.
     teamTitle: 'Meet the People Behind the Food',
-    team: [
-      { name: 'Aarav Kulkarni', role: 'Founder & Head Chef', photo: 'assets/images/about-owner.jpg' },
-      { name: 'Team Member Name', role: 'Operations Manager',      photo: 'assets/images/team-1.jpg' },
-      { name: 'Team Member Name', role: 'Executive Chef',     photo: 'assets/images/team-2.jpg' },
-      { name: 'Team Member Name', role: 'Service Head',       photo: 'assets/images/team-3.jpg' }
-    ]
+    team: []
   },
 
   /* ---------- 7. SERVICES ---------- */
   services: [
     {
-      id: 'buffet', icon: 'utensils', title: 'Buffet Catering', image: 'assets/images/service-wedding.jpg',
-      short: 'Elegant multi-cuisine buffets with chafing-dish setup and uniformed service staff.',
-      text: 'Freshly cooked starters, mains, breads and desserts served hot in a neat buffet setup — designed for large gatherings of any size, with a team that keeps the counters full and service smooth.',
-      points: ['Veg, non-veg and Jain options', 'Chafing-dish buffet setup', 'Uniformed service staff', 'Menu tasting before booking']
+      id: 'wedding', icon: 'utensils', title: 'Weddings & Engagements', image: 'assets/images/service-wedding.jpg',
+      short: 'Delicious veg and non-veg catering to make your big day memorable.',
+      text: 'From traditional favourites to customised menus, we serve food that makes your wedding or engagement guests feel welcome and satisfied.',
+      points: ['Vegetarian and non-vegetarian dishes', 'Traditional favourites', 'Customised menus', 'Dedicated service']
     },
     {
-      id: 'thali', icon: 'leaf', title: 'Thali & Meal Boxes', image: 'assets/images/service-party.jpg',
-      short: 'Wholesome regional thalis and neatly packed meal boxes, delivered on time.',
-      text: 'Maharashtrian, Gujarati, Punjabi and South Indian thalis prepared fresh every day — served on plates or packed in hygienic meal boxes for homes, shops and sites.',
-      points: ['Regional thali menus', 'Hygienic sealed meal boxes', 'Bulk order discounts', 'Home and site delivery']
+      id: 'griha-pravesh', icon: 'leaf', title: 'Griha Pravesh & Apartment Pooja', image: 'assets/images/service-griha-pravesh.jpg',
+      short: 'Wholesome meals for housewarmings and apartment poojas.',
+      text: 'Celebrate your new home or pooja with delicious food and exceptional care, planned around your family’s preferences.',
+      points: ['Traditional menus', 'Vegetarian and non-vegetarian options', 'Customised to your guest count', 'Dedicated service']
     },
     {
-      id: 'corporate', icon: 'briefcase', title: 'Corporate & Office Lunch', image: 'assets/images/service-corporate.jpg',
-      short: 'Reliable, hygienic daily and weekly lunch plans for offices and teams.',
-      text: 'We serve working lunches, snack boxes and tea-time catering with punctual delivery, neat packaging and flexible menus for teams of any size.',
-      points: ['Daily and weekly lunch plans', 'Snack and sandwich boxes', 'Tea / coffee and snack services', 'GST invoices on request']
+      id: 'baby-shower', icon: 'heart', title: 'Baby Shower & Naming Ceremony', image: 'assets/images/service-baby-shower.jpg',
+      short: 'Joyful catering for your family’s happiest moments.',
+      text: 'We put our heart into serving food that makes your guests feel welcome and satisfied at baby showers and naming ceremonies.',
+      points: ['Vegetarian and non-vegetarian dishes', 'Customised menus', 'Warm, careful service', 'Suited to family gatherings']
     },
     {
-      id: 'counters', icon: 'chef', title: 'Live Counters & Desserts', image: 'assets/images/service-engagement.jpg',
-      short: 'Live dosa, chaat and pasta counters, plus sweet and dessert stations.',
-      text: 'Add freshly made live counters and dessert stations to any catering order — prepared in front of your guests by our experienced chefs.',
-      points: ['Chaat, dosa and pasta counters', 'Tandoor grill station', 'Traditional sweets and desserts', 'Beverage and mocktail bar']
+      id: 'corporate', icon: 'briefcase', title: 'Corporate Events', image: 'assets/images/service-corporate.jpg',
+      short: 'Well-prepared food and reliable service for corporate events.',
+      text: 'Great food and dependable service for your team, clients and guests, with menus customised to the occasion.',
+      points: ['Vegetarian and non-vegetarian dishes', 'Customised menus', 'Reliable service', 'Quality and taste']
+    },
+    {
+      id: 'in-house', icon: 'chef', title: 'Small In-House Functions', image: 'assets/images/service-inhouse.jpg',
+      short: 'Homely catering for birthdays, family gatherings and intimate functions.',
+      text: 'Birthday celebrations and small family functions deserve the same care. We bring the perfect blend of taste, quality and authenticity to your table.',
+      points: ['Birthdays and family gatherings', 'Vegetarian and non-vegetarian dishes', 'Customised menus', 'Dedicated service']
     }
   ],
 
@@ -177,7 +165,7 @@ window.SITE = {
 
   /* ---------- 9. PACKAGES & PRICING ----------
      Set showPrices:false to hide prices and show "Request a quote" instead. */
-  showPrices: true,
+  showPrices: false,   // prices are not provided yet - the site shows "Request a Quote"
   pricingNote: 'Sample pricing shown for layout only — final rates depend on menu, quantity and delivery location.',
   packages: [
     {
@@ -206,78 +194,44 @@ window.SITE = {
      SAMPLE TEXT ONLY. Replace with real customer reviews, then set sample:false
      on each one (or delete the list to hide the section). */
   testimonialsTitle: 'What Our Clients Say',
-  testimonials: [
-    { name: 'Sample Client One',   role: 'Bulk Order Client',   rating: 5, sample: true,
-      text: 'Sample review text: the food was wonderful and the team was professional from start to finish.' },
-    { name: 'Sample Client Two',   role: 'Corporate Client', rating: 5, sample: true,
-      text: 'Sample review text: punctual delivery, great flavours and excellent presentation for our office lunch.' },
-    { name: 'Sample Client Three', role: 'Family Order Client', rating: 5, sample: true,
-      text: 'Sample review text: everyone loved the menu and the live counters. Everything was well organised.' }
-  ],
-  sampleNotice: 'Sample reviews shown for layout preview only.',   // shown while any testimonial has sample:true
+  testimonials: [],   // no real reviews yet - the section is hidden until you add some
+  sampleNotice: '',
 
   /* ---------- 11. GALLERY ----------
      category must match one of the names in galleryCategories.
      Add / remove items freely. `ratio` controls the tile shape. */
-  galleryCategories: ['Food', 'Buffets', 'Live Counters', 'Thali & Meals', 'Desserts', 'Corporate'],
+  galleryCategories: ['Buffet Setup', 'Live Service', 'Meal Boxes', 'Events & Venues'],
   gallery: [
-    { src: 'assets/images/gallery-01.jpg', cat: 'Food',          alt: 'Mini sandwich platter' },
-    { src: 'assets/images/gallery-02.jpg', cat: 'Food',          alt: 'Crispy golden samosas' },
-    { src: 'assets/images/gallery-03.jpg', cat: 'Food',          alt: 'Indian curry bowls' },
-    { src: 'assets/images/gallery-04.jpg', cat: 'Buffets',       alt: 'Grand buffet arrangement' },
-    { src: 'assets/images/gallery-05.jpg', cat: 'Buffets',       alt: 'Fresh salad & fruit buffet' },
-    { src: 'assets/images/gallery-06.jpg', cat: 'Live Counters', alt: 'Live dosa counter' },
-    { src: 'assets/images/gallery-07.jpg', cat: 'Live Counters', alt: 'Self-service buffet counter' },
-    { src: 'assets/images/gallery-08.jpg', cat: 'Thali & Meals', alt: 'South Indian banana-leaf meal' },
-    { src: 'assets/images/gallery-09.jpg', cat: 'Thali & Meals', alt: 'Traditional regional meal' },
-    { src: 'assets/images/gallery-10.jpg', cat: 'Desserts',      alt: 'Dessert display' },
-    { src: 'assets/images/gallery-11.jpg', cat: 'Desserts',      alt: 'Assorted pastries' },
-    { src: 'assets/images/gallery-12.jpg', cat: 'Corporate',     alt: 'Office lunch boxes' }
+    { src: 'assets/images/gallery-01.jpg', cat: 'Live Service', alt: 'Guests being served at the buffet' },
+    { src: 'assets/images/gallery-02.jpg', cat: 'Buffet Setup', alt: 'Buffet with chafing dishes and flowers' },
+    { src: 'assets/images/gallery-03.jpg', cat: 'Meal Boxes', alt: 'Freshly packed meal boxes' },
+    { src: 'assets/images/gallery-04.jpg', cat: 'Buffet Setup', alt: 'Buffet counter with chafing dishes' },
+    { src: 'assets/images/gallery-05.jpg', cat: 'Live Service', alt: 'Outdoor event serving' },
+    { src: 'assets/images/gallery-06.jpg', cat: 'Events & Venues', alt: 'Samadhan Catering welcome board' },
+    { src: 'assets/images/gallery-07.jpg', cat: 'Buffet Setup', alt: 'Decorated buffet hall' },
+    { src: 'assets/images/gallery-08.jpg', cat: 'Meal Boxes', alt: 'Thali-style meal box' },
+    { src: 'assets/images/gallery-09.jpg', cat: 'Live Service', alt: 'Buffet service in progress' },
+    { src: 'assets/images/gallery-10.jpg', cat: 'Events & Venues', alt: 'Banquet hall with round tables' },
+    { src: 'assets/images/gallery-11.jpg', cat: 'Buffet Setup', alt: 'Dishes on wooden stands with white drape' },
+    { src: 'assets/images/gallery-12.jpg', cat: 'Buffet Setup', alt: 'Welcome table with menu board and crockery' },
+    { src: 'assets/images/gallery-13.jpg', cat: 'Buffet Setup', alt: 'Outdoor buffet under a festive canopy' },
+    { src: 'assets/images/gallery-14.jpg', cat: 'Buffet Setup', alt: 'Evening buffet with chafing dishes' },
+    { src: 'assets/images/gallery-15.jpg', cat: 'Buffet Setup', alt: 'Chafing dish with floral decor' },
+    { src: 'assets/images/gallery-16.jpg', cat: 'Buffet Setup', alt: 'Buffet counter with food labels' },
+    { src: 'assets/images/gallery-17.jpg', cat: 'Live Service', alt: 'Serving at the buffet counter' },
+    { src: 'assets/images/gallery-18.jpg', cat: 'Events & Venues', alt: 'Hall set up for guests' },
+    { src: 'assets/images/gallery-19.jpg', cat: 'Buffet Setup', alt: 'Our chafing dishes and serving equipment' },
+    { src: 'assets/images/gallery-20.jpg', cat: 'Events & Venues', alt: 'Samadhan catering moments' },
+    { src: 'assets/images/gallery-21.jpg', cat: 'Events & Venues', alt: 'Samadhan catering moments' }
   ],
-
-  /* ---------- 14. REAL PHOTOS ----------
-     Real photographs (loaded from Unsplash) replace the placeholder files below.
-     If a photo cannot load, the local placeholder in /assets/images is used.
-     To use the client's own photos: put the file in /assets/images and delete its line here. */
-  imageMap: {
-    'assets/images/hero.jpg': 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/hero-about.jpg': 'https://images.unsplash.com/photo-1728910156510-77488f19b152?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/hero-services.jpg': 'https://images.unsplash.com/photo-1672698977671-9eb551549dcb?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/hero-gallery.jpg': 'https://images.unsplash.com/photo-1740047602722-b4993b79e4b7?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/hero-contact.jpg': 'https://images.unsplash.com/photo-1636906227201-f3ec32645129?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/cta-bg.jpg': 'https://images.unsplash.com/photo-1576842546422-60562b9242ae?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/intro-1.jpg': 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/intro-2.jpg': 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/about-owner.jpg': 'https://images.unsplash.com/photo-1763376360111-3597e5877517?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/team-1.jpg': 'https://images.unsplash.com/photo-1776142519748-2b897acaecd7?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/team-2.jpg': 'https://images.unsplash.com/photo-1592868859049-dfdcd6c07c29?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/team-3.jpg': 'https://images.unsplash.com/photo-1666951833461-71fc128b6810?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/about-journey.jpg': 'https://images.unsplash.com/photo-1660120447916-123439b05c40?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/service-wedding.jpg': 'https://images.unsplash.com/photo-1769638913559-c8c6984428fe?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/service-party.jpg': 'https://images.unsplash.com/photo-1625398407796-82650a8c135f?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/service-corporate.jpg': 'https://images.unsplash.com/photo-1672826979217-7156a305acf5?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/service-engagement.jpg': 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-01.jpg': 'https://images.unsplash.com/photo-1633424411431-5eb8d0e96488?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-02.jpg': 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-03.jpg': 'https://images.unsplash.com/photo-1767114915989-c6ab3c8fc42e?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-04.jpg': 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-05.jpg': 'https://images.unsplash.com/photo-1783949397986-87d4fbf2fbea?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-06.jpg': 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-07.jpg': 'https://images.unsplash.com/photo-1773409414133-9c5d141cb4c5?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-08.jpg': 'https://images.unsplash.com/photo-1625398407796-82650a8c135f?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-09.jpg': 'https://images.unsplash.com/photo-1786227905994-235e1799292e?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-10.jpg': 'https://images.unsplash.com/photo-1675949873154-7496809f1c9b?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-11.jpg': 'https://images.unsplash.com/photo-1701086490750-c032a7fa65aa?auto=format&fit=crop&q=75&w=1400',
-    'assets/images/gallery-12.jpg': 'https://images.unsplash.com/photo-1672826979217-7156a305acf5?auto=format&fit=crop&q=75&w=1400'
-  },
 
   /* ---------- 15. HOME HERO CARDS (glass carousel on the right) ---------- */
   heroCards: [
-    { title: 'Buffet Catering',    sub: 'Multi-cuisine spreads',   image: 'assets/images/service-wedding.jpg',    href: 'services.html#buffet' },
-    { title: 'Thali & Meal Boxes', sub: 'Fresh regional meals',    image: 'assets/images/service-party.jpg',      href: 'services.html#thali' },
-    { title: 'Office Lunch',       sub: 'Punctual & hygienic',     image: 'assets/images/service-corporate.jpg',  href: 'services.html#corporate' },
-    { title: 'Live Counters',      sub: 'Cooked fresh on site',    image: 'assets/images/service-engagement.jpg', href: 'services.html#counters' },
-    { title: 'Desserts & Sweets',  sub: 'Sweet endings',           image: 'assets/images/gallery-10.jpg',         href: 'gallery.html' }
+    { title: 'Weddings & Engagements',     sub: 'Make your big day memorable', image: 'assets/images/service-wedding.jpg',        href: 'services.html#wedding' },
+    { title: 'Griha Pravesh & Pooja',      sub: 'Wholesome, traditional meals', image: 'assets/images/service-griha-pravesh.jpg', href: 'services.html#griha-pravesh' },
+    { title: 'Baby Shower & Naming',       sub: 'Joyful family celebrations',   image: 'assets/images/service-baby-shower.jpg',   href: 'services.html#baby-shower' },
+    { title: 'Corporate Events',           sub: 'Reliable, quality catering',   image: 'assets/images/service-corporate.jpg',     href: 'services.html#corporate' },
+    { title: 'Small In-House Functions',   sub: 'Homely catering',              image: 'assets/images/service-inhouse.jpg',       href: 'services.html#in-house' }
   ],
 
   /* ---------- 12. NAVIGATION (do not rename files unless you update this) ---------- */
@@ -290,6 +244,6 @@ window.SITE = {
   ],
 
   /* ---------- 13. FORM OPTIONS ---------- */
-  eventTypes: ['Buffet Catering', 'Thali / Meal Boxes', 'Corporate / Office Lunch', 'Live Counters', 'Desserts & Sweets', 'Other'],
-  foodPreferences: ['Veg', 'Non-Veg', 'Both', 'Special / Jain']
+  eventTypes: ['Weddings & Engagements', 'Griha Pravesh & Apartment Pooja', 'Baby Shower & Naming Ceremony', 'Corporate Events', 'Small In-House Function', 'Other'],
+  foodPreferences: ['Veg', 'Non-Veg', 'Both']
 };

@@ -144,7 +144,7 @@
           </div>
         </div>
         <div class="mt-6 pt-3 border-t border-white/10 flex flex-col sm:flex-row gap-2 items-center justify-between text-xs text-white/55">
-          <p>&copy; ${new Date().getFullYear()} ${B.name}. All rights reserved.</p>
+          <p>&copy; ${new Date().getFullYear()} ${B.fullName}. All rights reserved.</p>
           <p class="font-script text-xl text-gold-light/90 leading-none">${B.script}</p>
         </div>
       </div>
@@ -258,7 +258,7 @@
     });
     $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
     $$('[data-years]').forEach(el => el.textContent = years);
-    if (body.dataset.title) document.title = `${body.dataset.title} | ${B.name} – ${B.descriptor}`;
+    if (body.dataset.title) document.title = `${body.dataset.title} | ${B.fullName}`;
   }
 
   function renderHome() {
@@ -279,7 +279,7 @@
 
     mount('home-services', S.services.map((s, i) => `
       <a href="services.html#${s.id}" class="glass glass-hover group flex flex-col" data-reveal ${delay(i)}>
-        <div class="relative h-28 sm:h-32 overflow-hidden rounded-t-[1.75rem]">
+        <div class="relative h-28 sm:h-32 overflow-hidden rounded-t-[inherit]">
           <img src="${s.image}" alt="${s.title}" loading="lazy" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-forest-deep/50 to-transparent"></div>
         </div>
@@ -291,7 +291,7 @@
         </div>
       </a>`).join(''));
 
-    const picks = S.gallery.filter(g => ['Food', 'Buffets'].includes(g.cat)).slice(0, 4);
+    const picks = S.gallery.filter(g => ['Buffet Setup', 'Meal Boxes'].includes(g.cat)).slice(0, 4);
     mount('home-showcase', picks.map((g, i) => `
       <a href="gallery.html" class="group relative block overflow-hidden shadow-glass hover:shadow-glass-lg transition-all duration-500 ${i % 2 ? 'shape-leaf-alt' : 'shape-leaf'}" data-reveal="zoom" ${delay(i)}>
         <img src="${g.src}" alt="${g.alt}" loading="lazy" class="w-full aspect-[16/10] object-cover transition duration-700 group-hover:scale-110">
@@ -493,7 +493,7 @@
     mount('hours-list', C.hours.map(h => `<li class="pt flex items-center justify-between gap-4 py-1.5 border-b border-gold/30 last:border-0"><span class="text-forest-deep">${h.day}</span><span class="font-medium text-gold-dark">${h.time}</span></li>`).join(''));
     mount('areas-list', B.areasServed.map(a => `<span class="chip glass !rounded-full px-3 py-0.5 text-xs text-forest-deep inline-flex items-center gap-1.5">${icon('pin', 'w-3.5 h-3.5 text-gold-dark')}${a}</span>`).join(''));
     const map = $('#map-embed');
-    if (map) map.innerHTML = `<iframe title="${B.name} location on Google Maps" src="https://www.google.com/maps?q=${encodeURIComponent(C.mapQuery)}&output=embed" class="w-full h-full border-0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+    if (map) map.innerHTML = `<iframe title="${B.fullName} location on Google Maps" src="https://www.google.com/maps?q=${encodeURIComponent(C.mapQuery)}&output=embed" class="w-full h-full border-0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>`;
   }
 
   function initEnquiryForm() {
@@ -510,7 +510,7 @@
 
     // Prefill from links such as contact.html?service=buffet or ?package=Signature
     const q = new URLSearchParams(location.search);
-    const svcMap = { buffet: 'Buffet Catering', thali: 'Thali / Meal Boxes', corporate: 'Corporate / Office Lunch', counters: 'Live Counters' };
+    const svcMap = { wedding: 'Weddings & Engagements', 'griha-pravesh': 'Griha Pravesh & Apartment Pooja', 'baby-shower': 'Baby Shower & Naming Ceremony', corporate: 'Corporate Events', 'in-house': 'Small In-House Function' };
     if (svcMap[q.get('service')]) $('[name=eventType]', form).value = svcMap[q.get('service')];
     if (q.get('package')) $('[name=package]', form).value = q.get('package');
 
@@ -519,7 +519,7 @@
     function buildMessage(f) {
       const row = (label, val) => val ? `*${label}:* ${val}` : null;
       return [
-        `*${S.whatsappMessages.enquiryTitle} – ${B.name}*`, '',
+        `*${S.whatsappMessages.enquiryTitle} – ${B.fullName}*`, '',
         row('Name', f.name), row('Phone', f.phone), row('Email', f.email), '',
         row('Order Type', f.eventType), row('Date Required', f.date ? fmtDate(f.date) : ''), row('People / Quantity', f.guests),
         row('Delivery Location', f.venue), row('Food Preference', f.food), row('Package', f.package),

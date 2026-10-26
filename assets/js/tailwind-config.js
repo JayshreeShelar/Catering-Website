@@ -8,12 +8,12 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        sage:     { DEFAULT: '#657568', 50: '#F1F4F1', 100: '#E1E7E1', 200: '#C5D0C6', 300: '#A3B3A5', 400: '#82958A', 500: '#657568', 600: '#526055', 700: '#415044', 800: '#333F37', 900: '#26302A' },
-        taupe:    { DEFAULT: '#B7A99A', 50: '#F8F5F2', 100: '#EFE9E3', 200: '#DED4CA', 300: '#CBBFB2', 400: '#B7A99A', 500: '#9D8E7E', 600: '#7F7264' },
-        gold:     { DEFAULT: '#C5A46D', light: '#E3CFA3', dark: '#A5844A' },
-        charcoal: { DEFAULT: '#292B28', soft: '#3A3D39' },
-        cream:    { DEFAULT: '#F4EFE7', deep: '#EAE2D6' },
-        forest:   { DEFAULT: '#3B4A3F', deep: '#2A352D' }
+        sage:     { DEFAULT: '#3F7A3E', 50: '#F0F6EF', 100: '#DFEBDD', 200: '#BFD7BC', 300: '#9BC098', 400: '#6FA26B', 500: '#3F7A3E', 600: '#336A33', 700: '#2A5629', 800: '#214422', 900: '#173018' },
+        taupe:    { DEFAULT: '#C9A66B', 50: '#FBF6EC', 100: '#F5ECD9', 200: '#EADCBC', 300: '#DEC999', 400: '#C9A66B', 500: '#A98648', 600: '#876A38' },
+        gold:     { DEFAULT: '#F2B91B', light: '#FFE27A', dark: '#946500' },
+        charcoal: { DEFAULT: '#2B2118', soft: '#43362A' },
+        cream:    { DEFAULT: '#FFF8E6', deep: '#F7EBCB' },
+        forest:   { DEFAULT: '#5B3A0C', deep: '#3A2406' }
       },
       fontFamily: {
         display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
@@ -21,15 +21,15 @@ tailwind.config = {
         script:  ['"Great Vibes"', 'cursive']
       },
       boxShadow: {
-        glass:   '0 10px 40px -10px rgba(41,43,40,.22)',
-        'glass-lg': '0 24px 60px -18px rgba(41,43,40,.35)',
-        glow:    '0 8px 30px -6px rgba(197,164,109,.55)'
+        glass:   '0 10px 40px -10px rgba(43,33,24,.22)',
+        'glass-lg': '0 24px 60px -18px rgba(43,33,24,.35)',
+        glow:    '0 8px 30px -6px rgba(242,185,27,.55)'
       },
       keyframes: {
         kenburns: { '0%': { transform: 'scale(1.02)' }, '100%': { transform: 'scale(1.12)' } },
         float:    { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
         fadeUp:   { '0%': { opacity: 0, transform: 'translateY(26px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
-        pulseRing:{ '0%': { boxShadow: '0 0 0 0 rgba(197,164,109,.55)' }, '100%': { boxShadow: '0 0 0 18px rgba(197,164,109,0)' } },
+        pulseRing:{ '0%': { boxShadow: '0 0 0 0 rgba(242,185,27,.55)' }, '100%': { boxShadow: '0 0 0 18px rgba(242,185,27,0)' } },
         drift:    { '0%,100%': { transform: 'translate(0,0) scale(1)' }, '50%': { transform: 'translate(30px,-24px) scale(1.08)' } },
         sweep:    { '0%': { backgroundPosition: '160% 0' }, '100%': { backgroundPosition: '-60% 0' } },
         bodyIn:   { '0%': { opacity: 0 } },
@@ -59,7 +59,7 @@ tailwind.config = {
     function ({ addBase, addComponents, theme }) {
       const ff = (key) => { const v = theme('fontFamily.' + key); return Array.isArray(v) ? v.join(',') : String(v); };
       const EASE = 'cubic-bezier(.2,.7,.2,1)';
-      const GOLD_D = '#A5844A';
+      const GOLD_D = '#946500';
       const RF = '.\\!rounded-full';
       /* gold gradient hairline drawn by a pseudo-element, so the card itself stays free to overflow (floating icons) */
       const borderFrame = {
@@ -102,19 +102,29 @@ tailwind.config = {
         ...stagger,
 
         /* ---------- shapes: big soft-rounded cards ---------- */
-        '.shape-leaf, .shape-leaf-alt': { borderRadius: '1.75rem' },
-        '.shape-leaf-sm': { borderRadius: '1.1rem' },
+        /* diagonal "petal" corners: two big curves + two tight ones; they swap on hover (cards are NOT used in the hero carousel) */
+        '.shape-leaf': { borderRadius: '2.5rem .5rem 2.5rem .5rem' },
+        '.shape-leaf-alt': { borderRadius: '.5rem 2.5rem .5rem 2.5rem' },
+        '.shape-leaf-sm': { borderRadius: '1.5rem .4rem 1.5rem .4rem' },
+        '.shape-leaf, .shape-leaf-alt, .shape-leaf-sm': { transition: `border-radius .6s ${EASE}, transform .5s ${EASE}, box-shadow .5s` },
+        '.shape-leaf.group:hover, .group:hover > .shape-leaf': { borderRadius: '.5rem 2.5rem .5rem 2.5rem' },
+        '.shape-leaf-alt.group:hover, .group:hover > .shape-leaf-alt': { borderRadius: '2.5rem .5rem 2.5rem .5rem' },
+        '.shape-leaf-sm.group:hover, .group:hover > .shape-leaf-sm': { borderRadius: '.4rem 1.5rem .4rem 1.5rem' },
+        /* photo cards lift, glow with a soft yellow ring and the photo zooms (zoom is set on the img in the markup) */
+        '.shape-leaf.group:hover, .shape-leaf-alt.group:hover': {
+          transform: 'translateY(-8px) scale(1.02)', boxShadow: '0 30px 55px -20px rgba(148,101,0,.65), 0 0 0 3px rgba(242,185,27,.4)'
+        },
         /* every shaped block gets the gold gradient hairline (images get a real border instead) */
-        '.shape-leaf:not(img), .shape-leaf-alt:not(img), .shape-leaf-sm:not(img)': { '--ew': '1.5px', '--e1': '#C5A46D', '--e2': '#F0E2BE', ...borderFrame },
+        '.shape-leaf:not(img), .shape-leaf-alt:not(img), .shape-leaf-sm:not(img)': { '--ew': '1.5px', '--e1': '#F2B91B', '--e2': '#FFF0BF', ...borderFrame },
         '.shape-leaf:not(img):not(.absolute):not(.fixed), .shape-leaf-alt:not(img):not(.absolute):not(.fixed), .shape-leaf-sm:not(img):not(.absolute):not(.fixed)': { position: 'relative' },
-        'img.shape-leaf, img.shape-leaf-alt, img.shape-leaf-sm': { border: '2px solid rgba(197,164,109,.9)' },
+        'img.shape-leaf, img.shape-leaf-alt, img.shape-leaf-sm': { border: '2px solid rgba(242,185,27,.9)' },
         /* round pills / header bar / icon circles also get a gold edge */
-        [`.glass${RF}, .glass-dark${RF}`]: { borderColor: 'rgba(197,164,109,.55)' },
+        [`.glass${RF}, .glass-dark${RF}`]: { borderColor: 'rgba(242,185,27,.55)' },
 
         /* photo hover: coloured light rises from the bottom to half the photo, caption appears on it */
         '.rise-fx': {
           position: 'absolute', left: 0, right: 0, bottom: 0, height: 0, pointerEvents: 'none', zIndex: 1,
-          background: 'linear-gradient(to top,rgba(42,53,45,.9) 0%,rgba(165,132,74,.6) 55%,rgba(227,207,163,0) 100%)',
+          background: 'linear-gradient(to top,rgba(58,36,6,.9) 0%,rgba(148,101,0,.6) 55%,rgba(227,207,163,0) 100%)',
           transition: `height .65s ${EASE}`
         },
         '.group:hover .rise-fx': { height: '58%' },
@@ -139,7 +149,7 @@ tailwind.config = {
           boxShadow: theme('boxShadow.glass')
         },
         '.glass-dark': {
-          backgroundColor: 'rgba(42,53,45,.55)',
+          backgroundColor: 'rgba(58,36,6,.55)',
           backdropFilter: 'blur(16px) saturate(140%)',
           '-webkit-backdrop-filter': 'blur(16px) saturate(140%)',
           border: '1px solid rgba(255,255,255,.14)',
@@ -149,61 +159,70 @@ tailwind.config = {
         },
         /* premium version (not applied to round pills / icons) */
         [`.glass:not(${RF})`]: {
-          '--ew': '1px', '--e1': '#C5A46D', '--e2': '#F0E2BE',
-          border: 'none', borderRadius: '1.75rem',
+          '--ew': '1px', '--e1': '#F2B91B', '--e2': '#FFF0BF',
+          border: 'none', borderRadius: '2.25rem .6rem 2.25rem .6rem',
           backgroundImage: 'linear-gradient(160deg,rgba(255,255,255,.55),rgba(255,255,255,.1) 60%)',
-          boxShadow: '0 14px 34px -16px rgba(42,53,45,.35)',
+          boxShadow: '0 14px 34px -16px rgba(58,36,6,.35)',
+          transition: `border-radius .6s ${EASE}, transform .5s ${EASE}, box-shadow .5s, background-color .5s`,
           ...borderFrame
         },
         [`.glass-dark:not(${RF})`]: {
-          '--ew': '1px', '--e1': '#C5A46D', '--e2': '#F3E4BE',
+          '--ew': '1px', '--e1': '#F2B91B', '--e2': '#FFF0BF',
           border: 'none', borderRadius: '1.75rem',
           ...borderFrame
         },
+        /* image frames / group cards: lift, flip the corners and glow */
+        [`.glass.group:not(${RF}):hover`]: {
+          borderRadius: '.6rem 2.25rem .6rem 2.25rem', transform: 'translateY(-8px)', boxShadow: '0 28px 50px -20px rgba(148,101,0,.6)'
+        },
+        [`.glass-dark.dark-hover:not(${RF})`]: { borderRadius: '.6rem 2.25rem .6rem 2.25rem', transition: `border-radius .6s ${EASE}, transform .5s ${EASE}, box-shadow .5s, background-color .5s` },
+        [`.glass-dark.dark-hover:not(${RF}):hover`]: { borderRadius: '2.25rem .6rem 2.25rem .6rem' },
         [`.glass:not(${RF}):not(.absolute):not(.fixed), .glass-dark:not(${RF}):not(.absolute):not(.fixed)`]: { position: 'relative' },
-        '.frame-strong': { '--ew': '2px !important', '--e1': '#A5844A !important', '--e2': '#D8BC85 !important' },
+        '.frame-strong': { '--ew': '2px !important', '--e1': '#946500 !important', '--e2': '#FFD866 !important' },
 
         /* ---------- floating icon badge (sits half outside the card's top edge) ---------- */
         '.ic': { transition: `transform .5s ${EASE}, background-color .4s, color .4s, box-shadow .4s` },
         '.float-ic': {
           position: 'absolute', top: '-1.5rem', left: '50%', marginLeft: '-1.5rem', width: '3rem', height: '3rem', zIndex: 10,
           display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9999px',
-          backgroundImage: 'linear-gradient(135deg,#EBD9AE,#C5A46D)', color: theme('colors.forest.deep'),
-          border: '3px solid ' + theme('colors.cream.DEFAULT'), boxShadow: '0 10px 22px -8px rgba(165,132,74,.75)'
+          backgroundImage: 'linear-gradient(135deg,#FFE9A8,#F2B91B)', color: theme('colors.forest.deep'),
+          border: '3px solid ' + theme('colors.cream.DEFAULT'), boxShadow: '0 10px 22px -8px rgba(148,101,0,.75)'
         },
 
         /* ---------- hover card: lifts, gold glow, light sweep, badge flips to forest ---------- */
         '.glass-hover': {
-          transition: `transform .5s ${EASE}, box-shadow .5s, background-color .5s`,
+          transition: `border-radius .6s ${EASE}, transform .5s ${EASE}, box-shadow .5s, background-color .5s`,
           '&::after': { ...sheenPseudo },
           '&:hover': {
-            transform: 'translateY(-8px)', backgroundColor: 'rgba(255,255,255,.92)', '--e1': '#A5844A', '--e2': '#E3CFA3',
-            boxShadow: '0 28px 50px -20px rgba(165,132,74,.6)'
+            transform: 'translateY(-10px) scale(1.02)', backgroundColor: 'rgba(255,255,255,.94)', '--e1': '#946500', '--e2': '#FFE9A8',
+            borderRadius: '.6rem 2.25rem .6rem 2.25rem',
+            backgroundImage: 'linear-gradient(160deg,rgba(255,255,255,.85),rgba(255,233,168,.45) 100%)',
+            boxShadow: '0 30px 55px -20px rgba(148,101,0,.65), 0 0 0 4px rgba(242,185,27,.22)'
           },
           '&:hover::after': { animation: 'sweep 1.1s ease' },
-          '&:hover .ic': { backgroundImage: 'none', backgroundColor: theme('colors.forest.DEFAULT'), color: theme('colors.gold.light'), transform: 'translateY(-4px) rotate(360deg) scale(1.1)', boxShadow: '0 14px 26px -8px rgba(42,53,45,.6)' },
+          '&:hover .ic': { backgroundImage: 'none', backgroundColor: theme('colors.forest.DEFAULT'), color: theme('colors.gold.light'), transform: 'translateY(-4px) rotate(360deg) scale(1.1)', boxShadow: '0 14px 26px -8px rgba(58,36,6,.6)' },
           '& h3': { transition: 'color .4s' },
           '&:hover h3': { color: theme('colors.gold.dark') }
         },
         '.dark-hover': {
           transition: `transform .5s ${EASE}, box-shadow .5s, background-color .5s`,
           '&::after': { ...sheenPseudo },
-          '&:hover': { transform: 'translateY(-8px)', backgroundColor: 'rgba(42,53,45,.82)', '--e2': '#fff', boxShadow: '0 28px 50px -20px rgba(0,0,0,.6)' },
+          '&:hover': { transform: 'translateY(-8px)', backgroundColor: 'rgba(58,36,6,.82)', '--e2': '#fff', boxShadow: '0 28px 50px -20px rgba(0,0,0,.6)' },
           '&:hover::after': { animation: 'sweep 1.1s ease' }
         },
 
         /* ---------- small points (list items, highlights): gold fill sweeps in ---------- */
         '.pt': {
           borderRadius: '.7rem', padding: '.2rem .45rem', margin: '0 -.45rem',
-          backgroundImage: 'linear-gradient(90deg,rgba(197,164,109,.32),rgba(197,164,109,.06))', backgroundRepeat: 'no-repeat', backgroundSize: '0% 100%',
+          backgroundImage: 'linear-gradient(90deg,rgba(242,185,27,.32),rgba(242,185,27,.06))', backgroundRepeat: 'no-repeat', backgroundSize: '0% 100%',
           transition: `background-size .5s ${EASE}, color .3s, transform .4s ${EASE}, box-shadow .4s`,
           '& .pt-dot': { transition: 'background-color .3s, color .3s, transform .4s, box-shadow .4s' },
-          '&:hover': { backgroundSize: '100% 100%', color: theme('colors.forest.deep'), transform: 'translateX(6px)', boxShadow: 'inset 3px 0 0 #C5A46D' },
-          '&:hover .pt-dot': { backgroundImage: 'linear-gradient(135deg,#E3CFA3,#C5A46D)', color: theme('colors.forest.deep'), transform: 'scale(1.25)', boxShadow: '0 0 0 4px rgba(197,164,109,.28)' }
+          '&:hover': { backgroundSize: '100% 100%', color: theme('colors.forest.deep'), transform: 'translateX(6px)', boxShadow: 'inset 3px 0 0 #F2B91B' },
+          '&:hover .pt-dot': { backgroundImage: 'linear-gradient(135deg,#FFE9A8,#F2B91B)', color: theme('colors.forest.deep'), transform: 'scale(1.25)', boxShadow: '0 0 0 4px rgba(242,185,27,.28)' }
         },
         '.chip': {
           transition: `transform .35s ${EASE}, background-color .3s, color .3s, border-color .3s, box-shadow .35s`,
-          '&:hover': { transform: 'translateY(-3px)', backgroundColor: theme('colors.forest.DEFAULT') + ' !important', color: '#fff !important', borderColor: theme('colors.gold.DEFAULT') + ' !important', boxShadow: '0 12px 22px -10px rgba(165,132,74,.8)' },
+          '&:hover': { transform: 'translateY(-3px)', backgroundColor: theme('colors.forest.DEFAULT') + ' !important', color: '#fff !important', borderColor: theme('colors.gold.DEFAULT') + ' !important', boxShadow: '0 12px 22px -10px rgba(148,101,0,.8)' },
           '&:hover svg': { color: theme('colors.gold.light') + ' !important' }
         },
 
@@ -223,8 +242,8 @@ tailwind.config = {
           '&:active': { transform: 'translateY(0) scale(.98)' }
         },
         '.btn-gold': {
-          backgroundImage: 'linear-gradient(135deg,#D8BC85,#C5A46D 55%,#B08F57)', color: '#2A352D',
-          boxShadow: '0 6px 20px -6px rgba(197,164,109,.7)',
+          backgroundImage: 'linear-gradient(135deg,#FFD866,#F2B91B 55%,#D9A200)', color: '#3A2406',
+          boxShadow: '0 6px 20px -6px rgba(242,185,27,.7)',
           '&:hover': { boxShadow: theme('boxShadow.glow'), filter: 'brightness(1.06)' }
         },
         '.btn-glass': {
@@ -252,17 +271,17 @@ tailwind.config = {
         /* ---------- form fields ---------- */
         '.field': {
           width: '100%', padding: '.5rem .85rem', borderRadius: '.7rem', fontSize: '.88rem',
-          backgroundColor: 'rgba(255,255,255,.65)', border: '1px solid rgba(101,117,104,.28)', color: theme('colors.charcoal.DEFAULT'),
+          backgroundColor: 'rgba(255,255,255,.65)', border: '1px solid rgba(63,122,62,.28)', color: theme('colors.charcoal.DEFAULT'),
           transition: 'border-color .3s, box-shadow .3s, background-color .3s, border-radius .4s',
-          '&::placeholder': { color: 'rgba(41,43,40,.45)' },
+          '&::placeholder': { color: 'rgba(43,33,24,.45)' },
           '&:hover': { borderColor: theme('colors.gold.DEFAULT'), borderRadius: '.7rem' },
-          '&:focus': { outline: 'none', borderColor: theme('colors.gold.DEFAULT'), backgroundColor: '#fff', boxShadow: '0 0 0 4px rgba(197,164,109,.22)', borderRadius: '.7rem' }
+          '&:focus': { outline: 'none', borderColor: theme('colors.gold.DEFAULT'), backgroundColor: '#fff', boxShadow: '0 0 0 4px rgba(242,185,27,.22)', borderRadius: '.7rem' }
         },
 
         /* ---------- scroll progress bar ---------- */
         '#scroll-bar': {
           position: 'fixed', top: 0, left: 0, height: '3px', width: '100%', zIndex: 70, transformOrigin: 'left', transform: 'scaleX(0)',
-          background: 'linear-gradient(90deg,#A5844A,#E3CFA3,#A5844A)', pointerEvents: 'none'
+          background: 'linear-gradient(90deg,#946500,#FFE9A8,#946500)', pointerEvents: 'none'
         }
       });
     }
