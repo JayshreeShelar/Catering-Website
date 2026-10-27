@@ -16,6 +16,7 @@
   const get = (path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), S);
   const years = new Date().getFullYear() - Number(B.established || new Date().getFullYear());
   const waLink = (text) => `https://wa.me/${String(C.whatsapp).replace(/\D/g, '')}?text=${encodeURIComponent(text)}`;
+  const IG_LINK = (S.social || []).find(x => x.icon === 'instagram');
   const mount = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; return el; };
 
   /* ------------------------------ 2. ICONS -------------------------------- */
@@ -76,8 +77,8 @@
           ${logo('text-white')}
           <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">${navLinks()}</nav>
           <div class="flex items-center gap-2">
-            <a href="tel:${C.phoneRaw}" class="hidden xl:inline-flex btn btn-glass !py-2" data-link="call-label">${icon('phone', 'w-4 h-4')}<span>Call Now</span></a>
-            <a href="contact.html#enquiry" class="hidden sm:inline-flex btn btn-gold !py-2">Get a Quote</a>
+            ${IG_LINK ? `<a href="${IG_LINK.url}" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" class="hidden sm:flex w-10 h-10 rounded-full items-center justify-center border border-white/30 bg-white/10 text-white hover:bg-gold hover:border-gold hover:text-forest-deep hover:-translate-y-0.5 transition-all duration-300">${icon('instagram', 'w-[1.1rem] h-[1.1rem]')}</a>` : ''}
+            <button type="button" data-menu-open class="hidden sm:inline-flex btn btn-gold !py-2">${icon('utensils', 'w-4 h-4')}<span>View Menu</span></button>
             <button id="menu-btn" class="lg:hidden w-11 h-11 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
               <span data-open>${icon('menu', 'w-6 h-6')}</span><span data-close class="hidden">${icon('close', 'w-6 h-6')}</span>
             </button>
@@ -89,9 +90,9 @@
               ${S.nav.map(n => `<a href="${n.href}" class="flex items-center justify-between py-3.5 border-b border-white/10 text-lg font-display ${n.page === PAGE ? 'text-gold-light' : 'text-white/90'}">${n.label}${icon('arrow', 'w-4 h-4 opacity-60')}</a>`).join('')}
             </nav>
             <div class="grid grid-cols-2 gap-3 mt-5">
-              <a href="tel:${C.phoneRaw}" class="btn btn-glass">${icon('phone', 'w-4 h-4')} Call Now</a>
               <a href="${waLink(S.whatsappMessages.general)}" target="_blank" rel="noopener" class="btn btn-glass">${icon('whatsapp', 'w-4 h-4')} WhatsApp</a>
-              <a href="contact.html#enquiry" class="btn btn-gold col-span-2">Get a Quote</a>
+              ${IG_LINK ? `<a href="${IG_LINK.url}" target="_blank" rel="noopener" class="btn btn-glass">${icon('instagram', 'w-4 h-4')} Instagram</a>` : ''}
+              <button type="button" data-menu-open class="btn btn-gold col-span-2">${icon('utensils', 'w-4 h-4')} View Menu</button>
             </div>
           </div>
         </div>
@@ -107,7 +108,7 @@
       $('[data-close]', btn).classList.toggle('hidden', !open);
     };
     btn.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
-    $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+    $$('a, [data-menu-open]', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
     window.addEventListener('resize', () => { if (window.innerWidth >= 1024) setMenu(false); });
     const onScroll = () => bar.classList.toggle('!bg-forest-deep/80', window.scrollY > 30);
@@ -154,6 +155,55 @@
   function socialIcons(size = 'w-10 h-10') {
     return S.social.map(s => `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.name}" title="${s.name}"
       class="${size} rounded-full flex items-center justify-center border border-white/25 bg-white/10 text-white hover:bg-gold hover:border-gold hover:text-forest-deep hover:-translate-y-1 transition-all duration-300">${icon(s.icon, 'w-[1.05rem] h-[1.05rem]')}</a>`).join('');
+  }
+
+  /* ---- "View Menu" overlay: shows the full menu PDF (pages in assets/menu) over the current page ---- */
+  function initMenuOverlay() {
+    const M = S.menuPdf; if (!M) return;
+    const pages = Array.from({ length: M.pages }, (_, i) => `${M.pagePrefix}${String(i + 1).padStart(2, '0')}.jpg`);
+    const el = document.createElement('div');
+    el.id = 'menu-overlay';
+    el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', M.title || 'Menu');
+    el.className = 'fixed inset-0 z-[80] hidden flex-col bg-charcoal/90 backdrop-blur-md';
+    el.innerHTML = `
+      <div class="flex items-center justify-between gap-3 px-4 sm:px-6 py-3 bg-forest-deep/95 text-white border-b border-white/10">
+        <div class="min-w-0">
+          <p class="font-display text-xl sm:text-2xl leading-tight truncate">${M.title || 'Menu'}</p>
+          <p class="text-[.7rem] uppercase tracking-[.22em] text-gold-light"><span data-mo-count>${M.pages}</span> pages &middot; scroll to view</p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="${M.file}" download class="btn btn-gold !py-2">${icon('send', 'w-4 h-4 rotate-90')}<span class="hidden sm:inline">Download PDF</span><span class="sm:hidden">PDF</span></a>
+          <button type="button" data-mo-close aria-label="Close menu" class="w-11 h-11 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition">${icon('close', 'w-6 h-6')}</button>
+        </div>
+      </div>
+      <div data-mo-scroll class="flex-1 overflow-y-auto overscroll-contain px-3 sm:px-6 py-5" tabindex="0">
+        <div class="mx-auto max-w-3xl space-y-4">
+          ${pages.map((src, i) => `<img src="${src}" alt="${(M.title || 'Menu')} - page ${i + 1} of ${M.pages}" ${i < 2 ? '' : 'loading="lazy"'} class="w-full h-auto rounded-lg shadow-glass-lg bg-white/5">`).join('')}
+          <p class="text-center text-xs text-white/60 pb-2">Can't see the pages? <a class="underline text-gold-light" href="${M.file}" target="_blank" rel="noopener">Open the PDF in a new tab</a></p>
+        </div>
+      </div>`;
+    body.appendChild(el);
+
+    const scroller = $('[data-mo-scroll]', el);
+    let lastFocus = null;
+    const open = () => {
+      lastFocus = document.activeElement;
+      el.classList.remove('hidden'); el.classList.add('flex');
+      body.style.overflow = 'hidden';
+      scroller.scrollTop = 0; scroller.focus({ preventScroll: true });
+    };
+    const close = () => {
+      el.classList.add('hidden'); el.classList.remove('flex');
+      body.style.overflow = '';
+      if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+    };
+    document.addEventListener('click', e => {
+      const t = e.target.closest('[data-menu-open]');
+      if (t) { e.preventDefault(); open(); }
+    });
+    $('[data-mo-close]', el).addEventListener('click', close);
+    el.addEventListener('click', e => { if (e.target === el || e.target === scroller) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !el.classList.contains('hidden')) close(); });
   }
 
   function renderFloating() {
@@ -354,7 +404,28 @@
       class="menu-tab inline-flex items-center gap-2 px-5 py-1.5 rounded-full text-sm font-medium border transition-all duration-300 hover:-translate-y-0.5 ${i === 0 ? 'bg-forest text-white border-forest shadow-glass' : 'bg-white/50 text-forest-deep border-sage/30 hover:bg-white hover:border-gold'}">
       <span class="w-2.5 h-2.5 rounded-full ${m.dot}"></span>${m.label}</button>`).join('');
     const secIcons = ['utensils', 'chef', 'leaf', 'cake'];
-    const panels = S.menu.map((m, i) => `
+    const priced = (m, i) => `
+      <div role="tabpanel" data-panel="${m.id}" class="${i ? 'hidden' : ''} pt-4">
+        <div class="text-center mb-4">
+          <h3 class="font-display text-2xl sm:text-3xl text-forest-deep">${m.title || m.label}</h3>
+          <p class="mt-0.5 text-[.7rem] uppercase tracking-[.22em] text-gold-dark">${m.note || ''}</p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          ${m.items.map(it => `
+            <div class="glass glass-hover p-4">
+              <div class="flex items-start justify-between gap-3">
+                <h4 class="flex items-start gap-2 text-[.98rem] font-semibold uppercase tracking-wide text-forest-deep leading-snug">
+                  <span class="mt-1 w-3 h-3 shrink-0 border ${it.veg ? 'border-green-600' : 'border-red-700'} flex items-center justify-center" title="${it.veg ? 'Veg' : 'Non-Veg'}"><span class="w-1.5 h-1.5 rounded-full ${it.veg ? 'bg-green-600' : 'bg-red-700'}"></span></span>
+                  <span>${it.name}</span>
+                </h4>
+                <span class="shrink-0 font-display text-xl font-semibold text-gold-dark whitespace-nowrap">&#8377;${Number(it.price).toLocaleString('en-IN')}/-</span>
+              </div>
+              <p class="mt-1.5 text-[.82rem] italic text-charcoal/75 leading-snug">${it.desc}</p>
+            </div>`).join('')}
+        </div>
+        <div class="mt-4 text-center"><button type="button" data-menu-open class="btn btn-sage !py-2">${icon('utensils', 'w-4 h-4')} View Full Menu</button></div>
+      </div>`;
+    const panels = S.menu.map((m, i) => m.items ? priced(m, i) : `
       <div role="tabpanel" data-panel="${m.id}" class="${i ? 'hidden' : ''} grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-9 pt-4">
         ${m.sections.map((sec, k) => `
           <div class="glass glass-hover p-4 pt-8">
@@ -653,6 +724,7 @@
     renderHeader();
     renderFooter();
     renderFloating();
+    initMenuOverlay();
     renderPageHeroes();
     renderCTAs();
     renderHome();

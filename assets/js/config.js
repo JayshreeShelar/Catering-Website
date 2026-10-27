@@ -35,7 +35,9 @@ window.SITE = {
   },
 
   /* ---------- 3. SOCIAL MEDIA (remove a line to hide it) ---------- */
-  social: [],   // no social media accounts yet - add { name, icon, url } entries here when available
+  social: [
+    { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/samadhan_catering?igsh=eGx5aXllMzQ4Zmdv' }
+  ],
 
   /* ---------- 4. WHATSAPP MESSAGE ---------- */
   whatsappMessages: {
@@ -131,6 +133,8 @@ window.SITE = {
   ],
 
   /* ---------- 8. MENU DETAILS (Veg / Non-Veg / Special) ---------- */
+  // Full printed menu shown in the "View Menu" overlay (header button). Pages are the JPEGs in assets/menu/
+  menuPdf: { file: 'assets/menu/Samadhan-Catering-Menu.pdf', pagePrefix: 'assets/menu/page-', pages: 15, title: 'Our Menu' },
   menuTitle: 'Menu Options',
   menuIntro: 'A sample of what we serve. Every menu can be customised to your guests and budget.',
   menu: [
@@ -159,6 +163,21 @@ window.SITE = {
         { name: 'Live Counters',  items: ['Chaat Counter', 'Pasta Station', 'Dosa & Uttapam Counter', 'Tandoor Grill'] },
         { name: 'Regional Thali', items: ['Maharashtrian Thali', 'Gujarati Thali', 'South Indian Meals', 'Punjabi Thali'] },
         { name: 'Beverages',      items: ['Fresh Lime Soda', 'Masala Chaas', 'Mocktail Bar', 'Tea & Coffee Station'] }
+      ]
+    },
+    {
+      id: 'biryani', label: 'Biryani', dot: 'bg-gold',
+      title: 'Samadhan’s Special Biryani’s',
+      note: 'Per kg · serves 6–7 adults',
+      items: [
+        { name: 'Vegetable Biryani', price: 900, veg: true, desc: 'Fragrant basmati rice layered with fresh vegetables and slow-cooked on dum for rich, authentic flavors.' },
+        { name: 'Paneer Biryani', price: 1100, veg: true, desc: 'Soft paneer cooked in a zesty red masala, layered with fragrant rice for a mildly spicy indulgence.' },
+        { name: 'Chicken Dum Biryani', price: 1000, veg: false, desc: 'Chicken and aromatic rice cooked on dum with traditional spices for a classic, flavorful experience.' },
+        { name: 'Mutton Biryani', price: 1850, veg: false, desc: 'Tender mutton slow-cooked with aromatic rice and spices, delivering deep, rich, and royal flavors.' },
+        { name: 'Chicken Tikka Boneless Biryani (Red Masala)', price: 1250, veg: false, desc: 'Smoky boneless chicken tikka in bold red masala, layered with rice for a spicy, flavor-packed biryani.' },
+        { name: 'Chicken Malai Tikka (White)', price: 1250, veg: false, desc: 'Creamy, melt-in-mouth chicken marinated in rich malai and mild spices, grilled to perfection.' },
+        { name: 'Chicken Seekh Biryani', price: 1350, veg: false, desc: 'Juicy chicken seekh kebabs layered with fragrant rice and spices for a delicious twist on biryani.' },
+        { name: 'Chicken Tandoori Tikka', price: 1100, veg: false, desc: 'Spicy tandoori-marinated bone-in chicken, grilled for that authentic dhaba-style taste.' }
       ]
     }
   ],
@@ -219,8 +238,7 @@ window.SITE = {
     { src: 'assets/images/gallery-15.jpg', cat: 'Buffet Setup', alt: 'Chafing dish with floral decor' },
     { src: 'assets/images/gallery-16.jpg', cat: 'Buffet Setup', alt: 'Buffet counter with food labels' },
     { src: 'assets/images/gallery-17.jpg', cat: 'Live Service', alt: 'Serving at the buffet counter' },
-    { src: 'assets/images/gallery-18.jpg', cat: 'Events & Venues', alt: 'Hall set up for guests' },
-    { src: 'assets/images/gallery-19.jpg', cat: 'Buffet Setup', alt: 'Our chafing dishes and serving equipment' }
+    { src: 'assets/images/gallery-18.jpg', cat: 'Events & Venues', alt: 'Hall set up for guests' }
   ],
 
   /* ---------- 15. HOME HERO CARDS (glass carousel on the right) ---------- */
