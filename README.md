@@ -2,7 +2,7 @@
 
 A 5-page premium glassmorphism catering website (HTML + Tailwind CSS + JavaScript).
 Built for **Samadhan Catering Service** (Airoli, Navi Mumbai). Business details, photos and logo are the client's own.
-Still template content (please confirm with the client): the sample **menu dishes**, the **package names/features** (prices are hidden, the site shows "Request a Quote") and the **"How It Works"** steps.
+Still template content (please confirm with the client): the **package names/features** (prices are hidden, the site shows "Request a Quote") and the **"How It Works"** steps.
 Instagram is linked (header, footer, contact page). Testimonials stay hidden until the client has real ones.
 The header **View Menu** button opens the menu PDF in an overlay: pages are `assets/menu/page-01..15.jpg` (settings in `menuPdf` in `config.js`). If the PDF changes, replace the PDF and re-export its pages with the same names.
 

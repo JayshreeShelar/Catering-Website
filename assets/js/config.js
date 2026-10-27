@@ -136,39 +136,35 @@ window.SITE = {
   // Full printed menu shown in the "View Menu" overlay (header button). Pages are the JPEGs in assets/menu/
   menuPdf: { file: 'assets/menu/Samadhan-Catering-Menu.pdf', pagePrefix: 'assets/menu/page-', pages: 15, title: 'Our Menu' },
   menuTitle: 'Menu Options',
-  menuIntro: 'A sample of what we serve. Every menu can be customised to your guests and budget.',
+  menuIntro: 'Our full menu of veg and non-veg favourites. Every menu can be customised to your guests and budget.',
   menu: [
     {
       id: 'veg', label: 'Veg', dot: 'bg-green-600',
       sections: [
-        { name: 'Starters',    items: ['Paneer Tikka', 'Hara Bhara Kebab', 'Crispy Corn', 'Veg Spring Rolls'] },
-        { name: 'Main Course', items: ['Dal Makhani', 'Paneer Butter Masala', 'Veg Biryani', 'Mix Veg Kolhapuri'] },
-        { name: 'Breads & Rice', items: ['Butter Naan', 'Tandoori Roti', 'Jeera Rice', 'Masala Papad'] },
-        { name: 'Desserts',    items: ['Gulab Jamun', 'Rasmalai', 'Chocolate Mousse', 'Fresh Fruit Platter'] }
+        { name: 'Appetizers – Veg', items: ['Veg Cutlet', 'Corn Tikki', 'Hara Bara Kebab', 'Veg Crispy', 'Mini Vada', 'Mix Bhajji', 'Gobi Manchurian', 'Paneer Tikka'] },
+        { name: 'More Appetizers', items: ['Veg Chilly', 'Paneer Chilly', 'Spring Roll', 'Mushroom Tikka', 'American Roll', 'Dahi Vada', 'Cheese Ball', 'Muttor Pattice'] },
+        { name: 'Subzi – Paneer & Gravy', items: ['Veg Kolhapuri', 'Mix Veg', 'Paneer Tikka Masala', 'Paneer Makhanwala', 'Veg Jalfrezi', 'Muttor Paneer', 'Palak Paneer', 'Methi Muttor Malai', 'Malai Kofta'] },
+        { name: 'More Subzi – Gravy', items: ['Chana Masala', 'Chole Masala', 'Paneer Koliwada', 'Lasooni Palak', 'Kaju Curry', 'Mushroom Masala', 'Navratan Kurma', 'Veg Kadai', 'Veg Jaipuri'] },
+        { name: 'Subzi – Home-style', items: ['Baingan Masala', 'Matki Usal', 'Dalimbi Usal', 'Bhindi Masala', 'Paneer Bhurji', 'Shimla Mirchi Masala', 'Yellow Potato', 'Tawa Mehfil', 'Baingan Batata', 'Bharli Vangi'] },
+        { name: 'More Subzi – Dry', items: ['Bharli Tondli', 'Chavli Batata', 'Masoor Amti', 'Kala Watana', 'Aloo Gobi', 'Aloo Muttor', 'Aloo Palak', 'Aloo Methi', 'Dum Aloo', 'Shev Bhaji'] },
+        { name: 'Indian Breads', items: ['Roti', 'Chapati', 'Phulke', 'Paratha', 'Butter Naan', 'Puri', 'Methi Puri', 'Kombdi Vade', 'Bhakri', 'Reshim Paratha'] },
+        { name: 'Dal', items: ['Plain Dal', 'Dal Tadka', 'Dal Fry', 'Amti', 'Dal Makhani'] }
       ]
     },
     {
       id: 'nonveg', label: 'Non-Veg', dot: 'bg-red-700',
       sections: [
-        { name: 'Starters',    items: ['Chicken Tikka', 'Fish Amritsari', 'Tandoori Chicken', 'Chicken 65'] },
-        { name: 'Main Course', items: ['Butter Chicken', 'Mutton Rogan Josh', 'Chicken Biryani', 'Goan Fish Curry'] },
-        { name: 'Breads & Rice', items: ['Garlic Naan', 'Lachha Paratha', 'Steamed Rice', 'Egg Fried Rice'] },
-        { name: 'Desserts',    items: ['Shahi Tukda', 'Gajar Halwa', 'Ice-Cream Station', 'Brownie with Sauce'] }
-      ]
-    },
-    {
-      id: 'special', label: 'Special Menus', dot: 'bg-gold',
-      sections: [
-        { name: 'Jain & Satvik',  items: ['No onion / garlic menus', 'Pooja & fasting thali', 'Sabudana specialities'] },
-        { name: 'Live Counters',  items: ['Chaat Counter', 'Pasta Station', 'Dosa & Uttapam Counter', 'Tandoor Grill'] },
-        { name: 'Regional Thali', items: ['Maharashtrian Thali', 'Gujarati Thali', 'South Indian Meals', 'Punjabi Thali'] },
-        { name: 'Beverages',      items: ['Fresh Lime Soda', 'Masala Chaas', 'Mocktail Bar', 'Tea & Coffee Station'] }
+        { name: 'Appetizers – Non-Veg', items: ['Chicken Crispy', 'Chicken 65', 'Chicken Lollipop', 'Chicken Chilly', 'Egg Chilly', 'Chicken Tikka', 'Murgh Malai Tikki Kebab'] },
+        { name: 'More Appetizers', items: ['Kheema Cutlet', 'Mutton Chilly', 'Prawns Chilly Dry', 'Chicken BBQ', 'Fish Finger', 'Tandoori Chicken Dry'] },
+        { name: 'Gravy – Non-Veg', items: ['Chicken Sukha', 'Chicken Handi', 'Butter Chicken', 'Malvani Chicken Curry', 'Mutton Handi'] },
+        { name: 'More Gravy', items: ['Mutton Sukha', 'Fish Curry', 'Prawn Curry', 'Anda Masala', 'Anda Curry'] }
       ]
     },
     {
       id: 'biryani', label: 'Biryani', dot: 'bg-gold',
       title: 'Samadhan’s Special Biryani’s',
       note: 'Per kg · serves 6–7 adults',
+      also: ['Veg Kofta Biryani', 'Prawn Biryani', 'Anda (Egg) Biryani'],   // listed in the menu PDF, price on request
       items: [
         { name: 'Vegetable Biryani', price: 900, veg: true, desc: 'Fragrant basmati rice layered with fresh vegetables and slow-cooked on dum for rich, authentic flavors.' },
         { name: 'Paneer Biryani', price: 1100, veg: true, desc: 'Soft paneer cooked in a zesty red masala, layered with fragrant rice for a mildly spicy indulgence.' },
@@ -178,6 +174,30 @@ window.SITE = {
         { name: 'Chicken Malai Tikka (White)', price: 1250, veg: false, desc: 'Creamy, melt-in-mouth chicken marinated in rich malai and mild spices, grilled to perfection.' },
         { name: 'Chicken Seekh Biryani', price: 1350, veg: false, desc: 'Juicy chicken seekh kebabs layered with fragrant rice and spices for a delicious twist on biryani.' },
         { name: 'Chicken Tandoori Tikka', price: 1100, veg: false, desc: 'Spicy tandoori-marinated bone-in chicken, grilled for that authentic dhaba-style taste.' }
+      ]
+    },
+    {
+      id: 'rice', label: 'Rice & Chinese', dot: 'bg-gold',
+      sections: [
+        { name: 'Rice', items: ['Plain Rice', 'Jeera Rice', 'Masale Bhat', 'Pulao', 'Tawa Pulao', 'Biryani', 'Green Peas Pulao'] },
+        { name: 'Chinese – Veg', items: ['Hakka Noodles', 'Schezwan Noodles', 'Triple Schezwan Noodles', 'Fried Rice', 'Schezwan Fried Rice', 'Triple Rice', 'Combination Rice'] },
+        { name: 'Chinese – Non-Veg', items: ['Fried Rice', 'Schezwan Fried Rice', 'Triple Rice', 'Combination Rice', 'Chicken Chilly Noodles', 'Chicken Manchurian Rice', 'Egg Hakka Noodles', 'Egg Schezwan Noodles'] }
+      ]
+    },
+    {
+      id: 'breakfast', label: 'Breakfast & Chaat', dot: 'bg-gold',
+      sections: [
+        { name: 'Breakfast', items: ['Upma', 'Sheera – Mango / Pineapple', 'Pohe', 'Idli', 'Medu Wada', 'Misal', 'Usal', 'Puri Bhaji', 'Sabudana Wada'] },
+        { name: 'More Breakfast', items: ['Dosa', 'Uttapam', 'Masala Dosa', 'Sabudana Khichdi', 'Aloo Paratha – Curd', 'Vada Pav', 'Samosa Pav', 'Bread Pattice', 'Bhajji – Onion, Potato, Moong'] },
+        { name: 'Chaat & Soup', items: ['Pani Puri', 'Shev Puri', 'Ragda Pattice', 'Tomato Soup', 'Manchow Soup', 'Sweetcorn Soup'] },
+        { name: 'Salad & Sides', items: ['Salad', 'Raita', 'Chaas', 'Papad', 'Kurdai'] }
+      ]
+    },
+    {
+      id: 'dessert', label: 'Desserts', dot: 'bg-gold',
+      sections: [
+        { name: 'Desserts', items: ['Gulab Jamun', 'Kala Jamun', 'Jalebi – Rabdi', 'Gajar Halwa', 'Walnut Halwa', 'Kheer', 'Angoor Basundi', 'Chum-Chum', 'Fruit Salad'] },
+        { name: 'More Desserts', items: ['Fruit Custard', 'Rasmalai', 'Rasgulla', 'Boondi', 'Malai Sandwich', 'Dudhi Halwa', 'Mugh Dal Halwa', 'Pineapple / Mango Sheera', 'Fruit Shrikhand'] }
       ]
     }
   ],

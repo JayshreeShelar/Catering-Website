@@ -410,9 +410,9 @@
           <h3 class="font-display text-2xl sm:text-3xl text-forest-deep">${m.title || m.label}</h3>
           <p class="mt-0.5 text-[.7rem] uppercase tracking-[.22em] text-gold-dark">${m.note || ''}</p>
         </div>
-        <div class="grid sm:grid-cols-2 gap-3">
+        <div class="grid sm:grid-cols-2 gap-3 items-stretch">
           ${m.items.map(it => `
-            <div class="glass glass-hover p-4">
+            <div class="glass glass-hover p-4 h-full">
               <div class="flex items-start justify-between gap-3">
                 <h4 class="flex items-start gap-2 text-[.98rem] font-semibold uppercase tracking-wide text-forest-deep leading-snug">
                   <span class="mt-1 w-3 h-3 shrink-0 border ${it.veg ? 'border-green-600' : 'border-red-700'} flex items-center justify-center" title="${it.veg ? 'Veg' : 'Non-Veg'}"><span class="w-1.5 h-1.5 rounded-full ${it.veg ? 'bg-green-600' : 'bg-red-700'}"></span></span>
@@ -423,12 +423,14 @@
               <p class="mt-1.5 text-[.82rem] italic text-charcoal/75 leading-snug">${it.desc}</p>
             </div>`).join('')}
         </div>
+        ${m.also && m.also.length ? `<p class="mt-4 text-center text-sm text-charcoal/70"><span class="text-[.7rem] uppercase tracking-[.2em] text-gold-dark mr-1">Also available (price on request):</span>${m.also.join(' &middot; ')}</p>` : ''}
         <div class="mt-4 text-center"><button type="button" data-menu-open class="btn btn-sage !py-2">${icon('utensils', 'w-4 h-4')} View Full Menu</button></div>
       </div>`;
+    const cardW = (n) => n <= 2 ? 'lg:w-[calc(50%-.5rem)]' : n === 3 ? 'lg:w-[calc(33.333%-.667rem)]' : 'lg:w-[calc(25%-.75rem)]';
     const panels = S.menu.map((m, i) => m.items ? priced(m, i) : `
-      <div role="tabpanel" data-panel="${m.id}" class="${i ? 'hidden' : ''} grid sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-9 pt-4">
+      <div role="tabpanel" data-panel="${m.id}" class="${i ? 'hidden' : ''} flex flex-wrap justify-center ${m.sections.length <= 2 ? 'lg:max-w-3xl lg:mx-auto' : ''} gap-x-4 gap-y-9 pt-4">
         ${m.sections.map((sec, k) => `
-          <div class="glass glass-hover p-4 pt-8">
+          <div class="glass glass-hover p-4 pt-8 w-full sm:w-[calc(50%-.5rem)] ${cardW(m.sections.length)}">
             ${FI(secIcons[k % 4])}
             <h3 class="text-xl font-semibold text-forest-deep pb-1.5 border-b border-gold/40 text-center">${sec.name}</h3>
             <ul class="mt-2 space-y-0.5">${sec.items.map(it => `<li class="pt flex items-start gap-2.5 text-[.82rem] text-charcoal/80"><span class="pt-dot mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${m.dot}"></span>${it}</li>`).join('')}</ul>
