@@ -145,8 +145,9 @@
           </div>
         </div>
         <div class="mt-6 pt-3 border-t border-white/10 flex flex-col sm:flex-row gap-2 items-center justify-between text-xs text-white/55">
-          <p>&copy; ${new Date().getFullYear()} ${B.fullName}. All rights reserved.</p>
-          <p class="font-script text-xl text-gold-light/90 leading-none">${B.script}</p>
+          <p class="sm:flex-1 sm:text-left">&copy; ${new Date().getFullYear()} ${B.fullName}. All rights reserved.</p>
+          <p class="font-script text-xl text-gold-light/90 leading-none sm:flex-1 sm:text-center">${B.script}</p>
+          <p class="sm:flex-1 sm:text-right">Developed By <a href="https://kunashmedia.com/" target="_blank" rel="noopener" class="font-medium text-gold-light hover:text-white underline-offset-4 hover:underline transition-colors">Kunash Media Solution</a></p>
         </div>
       </div>
     </footer>`);

@@ -258,7 +258,9 @@ window.SITE = {
     { src: 'assets/images/gallery-15.jpg', cat: 'Buffet Setup', alt: 'Chafing dish with floral decor' },
     { src: 'assets/images/gallery-16.jpg', cat: 'Buffet Setup', alt: 'Buffet counter with food labels' },
     { src: 'assets/images/gallery-17.jpg', cat: 'Live Service', alt: 'Serving at the buffet counter' },
-    { src: 'assets/images/gallery-18.jpg', cat: 'Events & Venues', alt: 'Hall set up for guests' }
+    { src: 'assets/images/gallery-18.jpg', cat: 'Events & Venues', alt: 'Hall set up for guests' },
+    { src: 'assets/images/gallery-19.jpg', cat: 'Buffet Setup', alt: 'Menu of the day board at the buffet' },
+    { src: 'assets/images/gallery-20.jpg', cat: 'Events & Venues', alt: 'Floral decorated buffet hall' }
   ],
 
   /* ---------- 15. HOME HERO CARDS (glass carousel on the right) ---------- */
