@@ -215,12 +215,12 @@ window.SITE = {
     {
       name: 'Signature', price: '₹750', unit: 'per plate', featured: true,
       desc: 'Our most popular choice for large buffets and office orders.',
-      features: ['4 starters', '5 main-course dishes', '1 live counter', '2 desserts', 'Uniformed service staff', 'Minimum 100 people']
+      features: ['3 starters', '6 main-course dishes', '1 live counter', '2 desserts', 'Uniformed service staff', 'Minimum 100 people']
     },
     {
       name: 'Royal', price: '₹1,200', unit: 'per plate', featured: false,
       desc: 'A grand multi-cuisine spread for premium catering orders.',
-      features: ['6 starters', '7 main-course dishes', '3 live counters', 'Dessert & beverage bar', 'Premium serving setup', 'Minimum 150 people']
+      features: ['4 starters', '7 main-course dishes', '2 live counters', 'Dessert & beverage bar', 'Premium serving setup', 'Minimum 150 people']
     }
   ],
   customPackage: {
