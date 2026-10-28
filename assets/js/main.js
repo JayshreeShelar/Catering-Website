@@ -409,7 +409,7 @@
       <div role="tabpanel" data-panel="${m.id}" class="${i ? 'hidden' : ''} pt-4">
         <div class="text-center mb-4">
           <h3 class="font-display text-2xl sm:text-3xl text-forest-deep">${m.title || m.label}</h3>
-          <p class="mt-0.5 text-[.7rem] uppercase tracking-[.22em] text-gold-dark">${m.note || ''}</p>
+          ${m.note ? `<p class="mt-0.5 text-[.7rem] uppercase tracking-[.22em] text-gold-dark">${m.note}</p>` : ''}
         </div>
         <div class="grid sm:grid-cols-2 gap-3 items-stretch">
           ${m.items.map(it => `
@@ -419,12 +419,12 @@
                   <span class="mt-1 w-3 h-3 shrink-0 border ${it.veg ? 'border-green-600' : 'border-red-700'} flex items-center justify-center" title="${it.veg ? 'Veg' : 'Non-Veg'}"><span class="w-1.5 h-1.5 rounded-full ${it.veg ? 'bg-green-600' : 'bg-red-700'}"></span></span>
                   <span>${it.name}</span>
                 </h4>
-                <span class="shrink-0 font-display text-xl font-semibold text-gold-dark whitespace-nowrap">&#8377;${Number(it.price).toLocaleString('en-IN')}/-</span>
+                ${it.price ? `<span class="shrink-0 font-display text-xl font-semibold text-gold-dark whitespace-nowrap">&#8377;${Number(it.price).toLocaleString('en-IN')}/-</span>` : ''}
               </div>
               <p class="mt-1.5 text-[.82rem] italic text-charcoal/75 leading-snug">${it.desc}</p>
             </div>`).join('')}
         </div>
-        ${m.also && m.also.length ? `<p class="mt-4 text-center text-sm text-charcoal/70"><span class="text-[.7rem] uppercase tracking-[.2em] text-gold-dark mr-1">Also available (price on request):</span>${m.also.join(' &middot; ')}</p>` : ''}
+        ${m.also && m.also.length ? `<p class="mt-4 text-center text-sm text-charcoal/70"><span class="text-[.7rem] uppercase tracking-[.2em] text-gold-dark mr-1">Also available:</span>${m.also.join(' &middot; ')}</p>` : ''}
         <div class="mt-4 text-center"><button type="button" data-menu-open class="btn btn-sage !py-2">${icon('utensils', 'w-4 h-4')} View Full Menu</button></div>
       </div>`;
     const cardW = (n) => n <= 2 ? 'lg:w-[calc(50%-.5rem)]' : n === 3 ? 'lg:w-[calc(33.333%-.667rem)]' : 'lg:w-[calc(25%-.75rem)]';

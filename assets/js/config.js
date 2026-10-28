@@ -163,17 +163,17 @@ window.SITE = {
     {
       id: 'biryani', label: 'Biryani', dot: 'bg-gold',
       title: 'Samadhan’s Special Biryani’s',
-      note: 'Per kg · serves 6–7 adults',
-      also: ['Veg Kofta Biryani', 'Prawn Biryani', 'Anda (Egg) Biryani'],   // listed in the menu PDF, price on request
+      note: '',
+      also: ['Veg Kofta Biryani', 'Prawn Biryani', 'Anda (Egg) Biryani'],   // listed in the menu PDF
       items: [
-        { name: 'Vegetable Biryani', price: 900, veg: true, desc: 'Fragrant basmati rice layered with fresh vegetables and slow-cooked on dum for rich, authentic flavors.' },
-        { name: 'Paneer Biryani', price: 1100, veg: true, desc: 'Soft paneer cooked in a zesty red masala, layered with fragrant rice for a mildly spicy indulgence.' },
-        { name: 'Chicken Dum Biryani', price: 1000, veg: false, desc: 'Chicken and aromatic rice cooked on dum with traditional spices for a classic, flavorful experience.' },
-        { name: 'Mutton Biryani', price: 1850, veg: false, desc: 'Tender mutton slow-cooked with aromatic rice and spices, delivering deep, rich, and royal flavors.' },
-        { name: 'Chicken Tikka Boneless Biryani (Red Masala)', price: 1250, veg: false, desc: 'Smoky boneless chicken tikka in bold red masala, layered with rice for a spicy, flavor-packed biryani.' },
-        { name: 'Chicken Malai Tikka (White)', price: 1250, veg: false, desc: 'Creamy, melt-in-mouth chicken marinated in rich malai and mild spices, grilled to perfection.' },
-        { name: 'Chicken Seekh Biryani', price: 1350, veg: false, desc: 'Juicy chicken seekh kebabs layered with fragrant rice and spices for a delicious twist on biryani.' },
-        { name: 'Chicken Tandoori Tikka', price: 1100, veg: false, desc: 'Spicy tandoori-marinated bone-in chicken, grilled for that authentic dhaba-style taste.' }
+        { name: 'Vegetable Biryani', veg: true, desc: 'Fragrant basmati rice layered with fresh vegetables and slow-cooked on dum for rich, authentic flavors.' },
+        { name: 'Paneer Biryani', veg: true, desc: 'Soft paneer cooked in a zesty red masala, layered with fragrant rice for a mildly spicy indulgence.' },
+        { name: 'Chicken Dum Biryani', veg: false, desc: 'Chicken and aromatic rice cooked on dum with traditional spices for a classic, flavorful experience.' },
+        { name: 'Mutton Biryani', veg: false, desc: 'Tender mutton slow-cooked with aromatic rice and spices, delivering deep, rich, and royal flavors.' },
+        { name: 'Chicken Tikka Boneless Biryani (Red Masala)', veg: false, desc: 'Smoky boneless chicken tikka in bold red masala, layered with rice for a spicy, flavor-packed biryani.' },
+        { name: 'Chicken Malai Tikka (White)', veg: false, desc: 'Creamy, melt-in-mouth chicken marinated in rich malai and mild spices, grilled to perfection.' },
+        { name: 'Chicken Seekh Biryani', veg: false, desc: 'Juicy chicken seekh kebabs layered with fragrant rice and spices for a delicious twist on biryani.' },
+        { name: 'Chicken Tandoori Tikka', veg: false, desc: 'Spicy tandoori-marinated bone-in chicken, grilled for that authentic dhaba-style taste.' }
       ]
     },
     {
